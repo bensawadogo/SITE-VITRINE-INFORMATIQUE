@@ -201,13 +201,12 @@ img{max-width:100%;height:auto;display:block}
 
 /* ===== CATÉGORIES ===== */
 .categories-section{background:#fff;padding:72px 0}
-.categories-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.category-chip{display:flex;flex-direction:column;align-items:center;gap:12px;padding:28px 14px;background:#fff;border:2px solid var(--ago-gray);border-radius:var(--radius-lg);cursor:pointer;transition:var(--transition);text-align:center}
-.category-chip:hover{border-color:var(--ago-orange);transform:translateY(-3px)}
-.category-chip.active{background:var(--ago-orange-light);border-color:var(--ago-orange)}
-.cat-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ago-slate-light);color:var(--ago-slate);transition:var(--transition)}
+.categories-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px 30px}
+.category-chip{display:flex;flex-direction:column;align-items:center;gap:10px;background:transparent;border:none;cursor:pointer;padding:0}
+.category-chip:hover .cat-icon{border-color:var(--ago-orange);transform:translateY(-3px)}
 .category-chip.active .cat-icon{background:var(--ago-orange);color:#fff}
-.category-chip span{font-size:13px;font-weight:500;color:var(--ago-text)}
+.cat-icon{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ago-slate-light);color:var(--ago-slate);transition:var(--transition);border:2px solid transparent;font-size:30px}
+.category-chip span{font-size:13px;font-weight:600;color:var(--ago-text)}
 
 /* ===== PRODUITS ===== */
 .products-section{background:var(--ago-offwhite);padding:72px 0}
@@ -310,7 +309,6 @@ img{max-width:100%;height:auto;display:block}
 @media (pointer:coarse){
   .btn,.nav-link,.category-chip,.filter-btn,.wishlist-btn,.header-icon,.search-btn,
   .hero-dot,.footer-links a,.mobile-nav-links li a,.logo{min-height:44px;min-width:44px}
-  .category-chip{padding:20px 12px}
 }
 
 @media (max-width:991px){
@@ -319,7 +317,6 @@ img{max-width:100%;height:auto;display:block}
 
 @media (max-width:992px){
   .products-grid{grid-template-columns:repeat(3,1fr)}
-  .categories-grid{grid-template-columns:repeat(3,1fr)}
 }
 
 @media (max-width:768px){
@@ -334,7 +331,16 @@ img{max-width:100%;height:auto;display:block}
   .hero-brands{margin-top:28px}
   .advantages-section .col-6{margin-bottom:16px}
   .products-grid{grid-template-columns:repeat(2,1fr)}
-  .categories-grid{grid-template-columns:repeat(3,1fr)}
+  .categories-grid{position:relative;width:300px;height:300px;margin:16px auto 0;flex-wrap:nowrap;gap:0}
+  .category-chip{position:absolute;top:50%;left:50%;margin:-36px 0 0 -36px;width:72px}
+  .category-chip .cat-icon{width:72px;height:72px;font-size:26px;margin:0}
+  .category-chip span{position:absolute;top:78px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600}
+  .category-chip:nth-child(1){transform:rotate(0deg) translate(0,-108px) rotate(0deg)}
+  .category-chip:nth-child(2){transform:rotate(60deg) translate(0,-108px) rotate(-60deg)}
+  .category-chip:nth-child(3){transform:rotate(120deg) translate(0,-108px) rotate(-120deg)}
+  .category-chip:nth-child(4){transform:rotate(180deg) translate(0,-108px) rotate(-180deg)}
+  .category-chip:nth-child(5){transform:rotate(240deg) translate(0,-108px) rotate(-240deg)}
+  .category-chip:nth-child(6){transform:rotate(300deg) translate(0,-108px) rotate(-300deg)}
   .newsletter-form{margin-left:0;margin-top:16px}
   .footer .col-6{margin-bottom:24px}
   .whatsapp-float{width:44px;height:44px;bottom:12px;right:12px}
@@ -343,7 +349,6 @@ img{max-width:100%;height:auto;display:block}
 @media (max-width:480px){
   .hero-title{font-size:22px}
   .products-grid{grid-template-columns:1fr}
-  .categories-grid{grid-template-columns:repeat(2,1fr)}
   .section-title{font-size:22px}
   .countdown-item span{font-size:22px}
 }
