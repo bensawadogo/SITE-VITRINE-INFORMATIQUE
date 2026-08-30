@@ -153,10 +153,6 @@ img{max-width:100%;height:auto;display:block}
 .hero-brands{max-width:460px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);padding:36px 28px;box-shadow:var(--shadow-lg);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:26px}
 .hero-brands img{width:74px;height:74px}
 
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:none;display:flex;align-items:center;justify-content:center;z-index:10;transition:var(--transition);backdrop-filter:blur(4px)}
-.hero-arrow:hover{background:var(--ago-orange)}
-.hero-prev{left:20px}
-.hero-next{right:20px}
 .hero-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
 .hero-dot{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:var(--transition)}
 .hero-dot.active{background:var(--ago-orange);transform:scale(1.2)}
@@ -313,7 +309,7 @@ img{max-width:100%;height:auto;display:block}
 /* Touch targets: min 44x44px on touch devices (WCAG / mobile UX) */
 @media (pointer:coarse){
   .btn,.nav-link,.category-chip,.filter-btn,.wishlist-btn,.header-icon,.search-btn,
-  .hero-arrow,.hero-dot,.footer-links a,.mobile-nav-links li a,.logo{min-height:44px;min-width:44px}
+  .hero-dot,.footer-links a,.mobile-nav-links li a,.logo{min-height:44px;min-width:44px}
   .category-chip{padding:20px 12px}
 }
 
@@ -333,6 +329,8 @@ img{max-width:100%;height:auto;display:block}
   .hamburger{display:flex}
   .nav-bar{display:none}
   .hero-title{font-size:26px}
+  .header-icons .header-icon{display:none}
+  .header-icons{margin-left:auto}
   .hero-brands{margin-top:28px}
   .advantages-section .col-6{margin-bottom:16px}
   .products-grid{grid-template-columns:repeat(2,1fr)}
@@ -393,3 +391,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .brand-logo{width:auto;height:auto;max-width:100%;object-fit:contain}
 .product-image .brand-logo{width:62%;max-width:150px}
 .offer-image .brand-logo{width:72%;max-width:130px}
+.adv-logo{width:34px;height:34px;object-fit:contain}
+.advantage-icon img{width:34px;height:34px;object-fit:contain}
+.mobile-social{display:flex;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--ago-gray)}
+.mobile-social-logo{width:34px;height:34px}
+.badge-status--open{background:#22c55e;color:#fff}
+.badge-status--closed{background:#dc2626;color:#fff}

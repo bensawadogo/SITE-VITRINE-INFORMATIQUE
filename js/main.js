@@ -32,12 +32,6 @@
         dots = document.querySelectorAll('.hero-dot');
         if (!slides.length) return;
 
-        const prevBtn = document.querySelector('.hero-prev');
-        const nextBtn = document.querySelector('.hero-next');
-
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 goToSlide(parseInt(dot.dataset.slide));
@@ -310,6 +304,18 @@
         }, { passive: true });
     }
 
+    // ===== 11. STATUT OUVERTURE (selon horaires Lun–Sam 8h–18h) =====
+    function initOpeningStatus() {
+        const badge = document.querySelector('.badge-status');
+        if (!badge) return;
+        const now = new Date();
+        const day = now.getDay();
+        const h = now.getHours();
+        const open = day >= 1 && day <= 6 && h >= 8 && h < 18;
+        if (open) { badge.textContent = 'Ouvert'; badge.classList.add('badge-status--open'); }
+        else { badge.textContent = 'Fermé'; badge.classList.add('badge-status--closed'); }
+    }
+
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
         initAOS();
@@ -324,6 +330,7 @@
         initWhatsAppFloat();
         initSmoothScroll();
         initHeaderScroll();
+        initOpeningStatus();
     });
 
 })();
