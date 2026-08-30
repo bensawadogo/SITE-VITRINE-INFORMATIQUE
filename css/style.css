@@ -83,6 +83,8 @@ img{max-width:100%;height:auto;display:block}
 /* ===== HEADER ===== */
 .header{background:var(--ago-white);border-bottom:1px solid var(--ago-gray);position:sticky;top:0;z-index:1000;padding:10px 0;transition:var(--transition)}
 .logo{display:flex;align-items:center;gap:10px;min-height:44px}
+.logo-link{display:inline-flex;align-items:center;text-decoration:none}
+.logo-img{height:auto;background:transparent}
 .logo-mark{width:42px;height:42px;background:var(--ago-orange);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(232,82,10,.3)}
 .logo-text{display:flex;flex-direction:column;line-height:1.1}
 .logo-name{font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;color:var(--ago-slate-dark)}
@@ -275,6 +277,7 @@ img{max-width:100%;height:auto;display:block}
 /* ===== FOOTER ===== */
 .footer{background:var(--ago-slate-dark);color:rgba(255,255,255,.7);padding:64px 0 0}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#fff;font-weight:600;font-size:16px}
+.footer-logo .logo-img{background:transparent}
 .footer-logo-badge{width:36px;height:36px;background:var(--ago-orange);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .footer-slogan{color:var(--ago-orange);font-style:italic;font-size:13px;margin-bottom:12px}
 .footer-desc{font-size:13px;line-height:1.7;margin-bottom:12px;color:rgba(255,255,255,.6)}
