@@ -391,8 +391,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .brand-logo{width:auto;height:auto;max-width:100%;object-fit:contain}
 .product-image .brand-logo{width:62%;max-width:150px}
 .offer-image .brand-logo{width:72%;max-width:130px}
-.adv-logo{width:34px;height:34px;object-fit:contain}
-.advantage-icon img{width:34px;height:34px;object-fit:contain}
 .mobile-social{display:flex;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--ago-gray)}
 .mobile-social-logo{width:34px;height:34px}
 .badge-status--open{background:#22c55e;color:#fff}
