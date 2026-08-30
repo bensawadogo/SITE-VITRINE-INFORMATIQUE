@@ -77,6 +77,7 @@
     function prevSlide() { goToSlide(currentSlide - 1); }
 
     function startAutoPlay() {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         stopAutoPlay();
         slideInterval = setInterval(nextSlide, 4000);
     }
