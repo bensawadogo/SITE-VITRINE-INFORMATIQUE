@@ -342,11 +342,10 @@ img{max-width:100%;height:auto;display:block}
   .category-chip .cat-icon{width:92px;height:92px;font-size:34px;margin:0}
   .category-chip span{position:absolute;top:100px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600}
   .category-chip:nth-child(1){transform:rotate(0deg) translate(0,calc(-1 * var(--r))) rotate(0deg)}
-  .category-chip:nth-child(2){transform:rotate(60deg) translate(0,calc(-1 * var(--r))) rotate(-60deg)}
-  .category-chip:nth-child(3){transform:rotate(120deg) translate(0,calc(-1 * var(--r))) rotate(-120deg)}
-  .category-chip:nth-child(4){transform:rotate(180deg) translate(0,calc(-1 * var(--r))) rotate(-180deg)}
-  .category-chip:nth-child(5){transform:rotate(240deg) translate(0,calc(-1 * var(--r))) rotate(-240deg)}
-  .category-chip:nth-child(6){transform:rotate(300deg) translate(0,calc(-1 * var(--r))) rotate(-300deg)}
+  .category-chip:nth-child(2){transform:rotate(72deg) translate(0,calc(-1 * var(--r))) rotate(-72deg)}
+  .category-chip:nth-child(3){transform:rotate(144deg) translate(0,calc(-1 * var(--r))) rotate(-144deg)}
+  .category-chip:nth-child(4){transform:rotate(216deg) translate(0,calc(-1 * var(--r))) rotate(-216deg)}
+  .category-chip:nth-child(5){transform:rotate(288deg) translate(0,calc(-1 * var(--r))) rotate(-288deg)}
   .newsletter-form{margin-left:0;margin-top:16px}
   .footer .col-6{margin-bottom:24px}
   .whatsapp-float{width:44px;height:44px;bottom:12px;right:12px}
