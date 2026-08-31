@@ -304,6 +304,8 @@ img{max-width:100%;height:auto;display:block}
 .footer-hours p{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:2px}
 
 .footer-bottom{padding:20px 0;text-align:center;font-size:12px;border-top:1px solid rgba(255,255,255,.1);margin-top:30px;color:rgba(255,255,255,.5)}
+.footer-qr{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px}
+.footer-qr-img{width:64px;height:64px;border-radius:6px;background:#fff;padding:4px}
 .footer-heart{color:var(--ago-orange);margin-top:4px}
 
 /* ===== WHATSAPP FLOAT ===== */
