@@ -399,7 +399,7 @@
         if (!children.length) return;
 
         // Vitesse en px par frame (plus rapide sur mobile pour un effet visible)
-        let speed = window.innerWidth < 480 ? 0.9 : 0.55;
+        let speed = window.innerWidth < 480 ? 1.6 : 1.0;
 
         // Point de boucle : position exacte de la 1re marque dupliquée
         const splitIndex = Math.floor(children.length / 2);
@@ -437,7 +437,7 @@
 
         // Recalcule vitesse/point de boucle si la fenêtre change ou images chargées
         window.addEventListener('resize', () => {
-            speed = window.innerWidth < 480 ? 0.9 : 0.55;
+            speed = window.innerWidth < 480 ? 1.6 : 1.0;
             if (children[splitIndex]) loopAt = children[splitIndex].offsetLeft;
         }, { passive: true });
         window.addEventListener('load', () => {
