@@ -77,6 +77,14 @@ img{max-width:100%;height:auto;display:block}
 /* Bouton secondaire "Voir les détails" sur les cartes produit/offre */
 .btn-details{margin-top:8px;width:100%;justify-content:center}
 
+/* Cartes produit & offre ENTIÈREMENT cliquables : un lien overlay couvre la
+   carte ; les boutons (Commander, wishlist, badge) restent cliquables au-dessus.
+   Sans ça, cliquer ailleurs que sur le bouton ne fait rien (carte morte). */
+.product-card,.offer-card{position:relative}
+.card-link{position:absolute;inset:0;z-index:1;border-radius:inherit;outline:none}
+.card-link:focus-visible{box-shadow:inset 0 0 0 2px var(--ago-orange)}
+.product-card .btn,.offer-card .btn{position:relative;z-index:2}
+
 /* ===== TOP BAR ===== */
 .top-bar{background:var(--ago-slate-dark);color:#fff;min-height:30px;display:flex;align-items:center;font-size:12px;padding-top:env(safe-area-inset-top,0)}
 .top-bar a{color:#fff}
