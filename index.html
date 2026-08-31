@@ -7,6 +7,10 @@
     <meta name="theme-color" content="#E8520A">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
+
+    <!-- Favicon + icônes appareils (absents auparavant : icône par défaut dans les onglets/favoris) -->
+    <link rel="icon" type="image/png" href="images/logo-ago-hq.png">
+    <link rel="apple-touch-icon" href="images/logo-ago-hq.png">
     <link rel="canonical" href="https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/">
 
     <meta property="og:type" content="website">
@@ -16,6 +20,7 @@
     <meta property="og:description" content="Vente et réparation d'ordinateurs, laptops, écrans et accessoires à Ouagadougou. Devis gratuit.">
     <meta property="og:url" content="https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/">
     <meta property="og:image" content="https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/images/logo-ago-hq.png">
+    <meta property="og:image:alt" content="Logo AGO Tech Company SARL — informatique à Ouagadougou">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AGO Tech Company SARL – Informatique à Ouagadougou">
@@ -26,8 +31,10 @@
     <link rel="alternate" hreflang="fr" href="https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/">
     <link rel="alternate" hreflang="x-default" href="https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/">
 
-    <!-- Google Search Console: remplacer par votre code de vérification -->
-    <meta name="google-site-verification" content="REMPLACER_PAR_VOTRE_CODE">
+    <!-- Google Search Console: décommentez et remplacez par votre code réel.
+         (Une valeur factice envoyée aux crawlers est inutile et pollue le head.)
+    <meta name="google-site-verification" content="VOTRE_CODE_ICI">
+    -->
 
     <title>AGO Tech Company SARL – Informatique & réparation à Ouagadougou</title>
 
@@ -46,6 +53,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Warm-up TLS des CDN qui servent le CSS/JS bloquant → handshake négocié en parallèle du HTML -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://unpkg.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5.3 CDN -->
@@ -54,8 +64,11 @@
     <!-- AOS.js CDN -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <!-- Tabler Icons webfont -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css">
+    <!-- Tabler Icons webfont — chargé en ASYNC (non bloquant) : retire ~90 Ko de CSS
+         du chemin de rendu critique et retarde les ~300 Ko de woff2.
+         L'espace des icônes est réservé par la règle i.ti de css/style.css → zéro CLS. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"></noscript>
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -257,10 +270,10 @@
                     </div>
                     <div class="col-lg-6 text-center" data-aos="fade-left">
                         <div class="hero-brands">
-                            <img src="images/brands/dell.svg" alt="Dell" class="brand-logo">
-                            <img src="images/brands/asus.svg" alt="Asus" class="brand-logo">
-                            <img src="images/brands/hp.svg" alt="HP" class="brand-logo">
-                            <img src="images/brands/lenovo.svg" alt="Lenovo" class="brand-logo">
+                            <img src="images/brands/dell.svg" alt="Dell" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/asus.svg" alt="Asus" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/hp.svg" alt="HP" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/lenovo.svg" alt="Lenovo" class="brand-logo" loading="lazy" width="120" height="40">
                         </div>
                     </div>
                 </div>
@@ -282,10 +295,10 @@
                     </div>
                     <div class="col-lg-6 text-center" data-aos="fade-left">
                         <div class="hero-brands">
-                            <img src="images/brands/logitech.svg" alt="Logitech" class="brand-logo">
-                            <img src="images/brands/samsung.svg" alt="Samsung" class="brand-logo">
-                            <img src="images/brands/lg.svg" alt="LG" class="brand-logo">
-                            <img src="images/brands/hp.svg" alt="HP" class="brand-logo">
+                            <img src="images/brands/logitech.svg" alt="Logitech" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/samsung.svg" alt="Samsung" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/lg.svg" alt="LG" class="brand-logo" loading="lazy" width="120" height="40">
+                            <img src="images/brands/hp.svg" alt="HP" class="brand-logo" loading="lazy" width="120" height="40">
                         </div>
                     </div>
                 </div>
@@ -665,20 +678,20 @@
         </div>
         <div class="brands-marquee brands-wrapper" data-aos="fade-up" data-aos-delay="100">
             <div class="brands-track">
-                <div class="brand-item"><img class="brand-logo" src="images/brands/hp-colored.svg" alt="HP"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/dell-colored.svg" alt="Dell"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/lenovo-colored.svg" alt="Lenovo"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/asus-colored.svg" alt="Asus"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/samsung-colored.svg" alt="Samsung"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/lg-colored.svg" alt="LG"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/logitech.svg" alt="Logitech"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/hp-colored.svg" alt="HP"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/dell-colored.svg" alt="Dell"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/lenovo-colored.svg" alt="Lenovo"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/asus-colored.svg" alt="Asus"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/samsung-colored.svg" alt="Samsung"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/lg-colored.svg" alt="LG"></div>
-                <div class="brand-item"><img class="brand-logo" src="images/brands/logitech.svg" alt="Logitech"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/hp-colored.svg" alt="HP" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/dell-colored.svg" alt="Dell" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/lenovo-colored.svg" alt="Lenovo" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/asus-colored.svg" alt="Asus" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/samsung-colored.svg" alt="Samsung" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/lg-colored.svg" alt="LG" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/logitech.svg" alt="Logitech" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/hp-colored.svg" alt="HP" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/dell-colored.svg" alt="Dell" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/lenovo-colored.svg" alt="Lenovo" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/asus-colored.svg" alt="Asus" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/samsung-colored.svg" alt="Samsung" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/lg-colored.svg" alt="LG" loading="lazy" width="140" height="48"></div>
+                <div class="brand-item"><img class="brand-logo" src="images/brands/logitech.svg" alt="Logitech" loading="lazy" width="140" height="48"></div>
             </div>
         </div>
     </section>
@@ -819,7 +832,7 @@
             <div class="footer-bottom">
                 <p>© 2026 AGO Tech Company SARL · Tous droits réservés</p>
                 <div class="footer-qr">
-                    <img src="qr_client.png" alt="QR code vers le site" class="footer-qr-img">
+                    <img src="qr_client.png" alt="QR code vers le site" class="footer-qr-img" loading="lazy">
                     <span>Scannez pour voir le site</span>
                 </div>
             </div>

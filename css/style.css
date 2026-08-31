@@ -541,3 +541,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,
   .hero-retro-grid-inner{animation:none}
   .brands-track{animation:none}
 }
+
+/* ══════════════════════════════════════════════════════
+   PERFORMANCE MOBILE — ajouts optimisation SEO/perf 08/2026
+   ══════════════════════════════════════════════════════ */
+
+/* 1) Réserve l'espace des icônes Tabler tant que la webfont async n'est pas
+      chargée (le glyphe fait ~1em) → zéro décalage de mise en page (CLS 0).
+      Sans le CSS async, <i class="ti"> est vide et de largeur nulle. */
+i.ti{display:inline-block;width:1em;height:1em;line-height:1;vertical-align:-.125em;text-align:center}
+
+/* 2) Rendu différé (content-visibility:auto) : le navigateur saute le layout,
+      le paint et le composite des sections hors écran → premier rendu bien plus
+      rapide sur mobile (90 % du trafic). Le préfixe "auto" fait mémoriser la
+      vraie hauteur après premier rendu (plus aucune estimation visible).
+      Les navigateurs sans support ignorent simplement ces règles. */
+.products-section,.brands-section,.newsletter-section,.map-section,.footer{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 600px;
+}
+.products-section{contain-intrinsic-size:auto 2600px} /* ~4 rangées de cartes */
+.map-section{contain-intrinsic-size:auto 480px}       /* iframe carte incluse */
