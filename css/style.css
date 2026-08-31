@@ -276,7 +276,7 @@ img{max-width:100%;height:auto;display:block}
 .map-frame iframe{display:block}
 
 /* ===== FOOTER ===== */
-.footer{background:var(--ago-slate-dark);color:rgba(255,255,255,.7);padding:64px 0 0}
+.footer{background:var(--ago-slate);color:rgba(255,255,255,.7);padding:64px 0 0}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#fff;font-weight:600;font-size:16px}
 .footer-logo .logo-img{background:transparent}
 .footer-logo-badge{width:36px;height:36px;background:var(--ago-orange);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
