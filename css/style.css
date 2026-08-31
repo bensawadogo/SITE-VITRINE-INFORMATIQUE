@@ -75,13 +75,13 @@ img{max-width:100%;height:auto;display:block}
 .btn-block{display:flex;width:100%}
 
 /* ===== TOP BAR ===== */
-.top-bar{background:var(--ago-slate-dark);color:#fff;height:30px;display:flex;align-items:center;font-size:12px}
+.top-bar{background:var(--ago-slate-dark);color:#fff;min-height:30px;display:flex;align-items:center;font-size:12px;padding-top:env(safe-area-inset-top,0)}
 .top-bar a{color:#fff}
 .top-bar a:hover{color:var(--ago-orange-mid)}
 .badge-status{background:var(--ago-orange);color:#fff;padding:2px 8px;border-radius:50px;font-size:11px;font-weight:600}
 
 /* ===== HEADER ===== */
-.header{background:var(--ago-white);border-bottom:1px solid var(--ago-gray);position:sticky;top:0;z-index:1000;padding:10px 0;transition:var(--transition)}
+.header{background:var(--ago-white);border-bottom:1px solid var(--ago-gray);position:sticky;top:env(safe-area-inset-top,0);z-index:1000;padding:10px 0;transition:var(--transition)}
 .logo{display:flex;align-items:center;gap:10px;min-height:44px}
 .logo-link{display:inline-flex;align-items:center;text-decoration:none}
 .logo-img{height:auto;background:transparent}
@@ -252,7 +252,7 @@ img{max-width:100%;height:auto;display:block}
 /* ===== BRANDS ===== */
 .brands-section{background:#fff;border-top:1px solid var(--ago-gray);padding:72px 0}
 .brands-marquee{overflow:hidden;padding:20px 0}
-.brands-track{display:flex;gap:40px;animation:marquee 20s linear infinite;width:max-content}
+.brands-track{display:flex;gap:40px;animation:marquee 20s linear infinite;width:max-content;will-change:transform}
 .brand-item{flex-shrink:0;width:132px;height:66px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
 .brand-item img{width:96px;height:auto;max-height:42px;object-fit:contain}
 .brand-item:hover{transform:translateY(-2px);opacity:.8}
@@ -536,12 +536,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,
   .offer-info h3{font-size:15px}
   .offer-pricing strong{font-size:17px}
   .offer-info .btn{font-size:13px;padding:10px 8px;white-space:normal}
+  /* Marques : défilement visible sur mobile (sinon trop lent → immobile) */
+  .brands-track{animation-duration:15s}
 }
 @media (max-width:380px){
   [data-aos]{opacity:1!important;transform:none!important}
   .hero-retro-grid-inner{animation:none!important;opacity:.25}
   .whatsapp-float{animation:none!important}
-  .brands-track{animation-duration:30s!important}
+  .brands-track{animation-duration:15s!important}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}

@@ -42,8 +42,8 @@
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         body{font-family:'Inter',sans-serif;color:#1E3545;background:#F7F9FA;line-height:1.6}
-        .top-bar{background:#1E3545;color:#fff;height:30px;display:flex;align-items:center;font-size:12px}
-        .header{background:#fff;border-bottom:2px solid #E8520A;position:sticky;top:0;z-index:1000;padding:10px 0}
+        .top-bar{background:#1E3545;color:#fff;min-height:30px;display:flex;align-items:center;font-size:12px;padding-top:env(safe-area-inset-top,0)}
+        .header{background:#fff;border-bottom:2px solid #E8520A;position:sticky;top:env(safe-area-inset-top,0);z-index:1000;padding:10px 0}
         .nav-bar{background:#3A5A72;position:relative;z-index:999}
         .hero{background:#1E3545;position:relative;overflow:hidden}
         .whatsapp-float{position:fixed;bottom:20px;right:20px;width:52px;height:52px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;transition:opacity .3s ease}
@@ -675,7 +675,7 @@
     <section class="brands-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Nos marques partenaires</h2>
+                <h2 class="section-title">Marques disponibles</h2>
             </div>
         </div>
         <div class="brands-marquee brands-wrapper" data-aos="fade-up" data-aos-delay="100">
