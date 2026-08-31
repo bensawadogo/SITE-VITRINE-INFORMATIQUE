@@ -413,3 +413,122 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .mobile-social-logo{width:24px;height:24px;filter:brightness(0) invert(1)}
 .badge-status--open{background:#22c55e;color:#fff}
 .badge-status--closed{background:#dc2626;color:#fff}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 1 — FOND HERO RETRO-GRID (CSS pur)
+   ══════════════════════════════════════════════════════ */
+.hero-retro-grid{pointer-events:none;position:absolute;inset:0;overflow:hidden;opacity:.45;perspective:200px;z-index:0}
+.hero-retro-grid-inner{position:absolute;inset:0;transform:rotateX(65deg);background-repeat:repeat;background-size:60px 60px;height:300vh;margin-left:-50%;transform-origin:100% 0 0;width:600vw;background-image:linear-gradient(to right,rgba(58,90,114,.35) 1px,transparent 0),linear-gradient(to bottom,rgba(58,90,114,.35) 1px,transparent 0);animation:retroGridScroll 15s linear infinite}
+.hero-retro-grid-fade{position:absolute;inset:0;background:linear-gradient(to top,#1E3545 0%,transparent 90%)}
+@keyframes retroGridScroll{0%{transform:rotateX(65deg) translateY(-50%)}100%{transform:rotateX(65deg) translateY(0)}}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 2 — TITRE HERO TEXT REVEAL (mot par mot)
+   ══════════════════════════════════════════════════════ */
+.hero-title .word{display:inline-block;opacity:0;transform:translateY(20px);filter:blur(4px);transition:opacity .5s ease,transform .5s ease,filter .5s ease}
+.hero-title .word.visible{opacity:1;transform:translateY(0);filter:blur(0)}
+.hero-title .word:nth-child(1){transition-delay:.08s}
+.hero-title .word:nth-child(2){transition-delay:.16s}
+.hero-title .word:nth-child(3){transition-delay:.24s}
+.hero-title .word:nth-child(4){transition-delay:.32s}
+.hero-title .word:nth-child(5){transition-delay:.40s}
+.hero-title .word:nth-child(6){transition-delay:.48s}
+.hero-slogan-typed{display:inline-block;overflow:hidden;white-space:nowrap;border-right:2px solid var(--ago-orange);width:0;animation:typing 2.5s steps(40,end) .8s forwards,blinkCursor .75s step-end infinite}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blinkCursor{50%{border-color:transparent}}
+.highlight-animated{background:linear-gradient(90deg,var(--ago-orange),var(--ago-orange-mid),var(--ago-orange));background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 3s ease infinite}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 3 — NAVBAR STICKY BLUR + UNDERLINE
+   ══════════════════════════════════════════════════════ */
+.header.scrolled{background:rgba(30,53,69,.92)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.nav-link{position:relative}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:var(--ago-orange);transition:width .3s ease,left .3s ease}
+.nav-link:hover::after,.nav-link.active::after{width:100%;left:0}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 4 — CARDS BORDER-BEAM
+   ══════════════════════════════════════════════════════ */
+.product-card{position:relative;overflow:visible;transition:transform .3s ease,box-shadow .3s ease}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.border-beam{position:absolute;inset:-1px;border-radius:var(--radius-lg);overflow:hidden;pointer-events:none;opacity:0;transition:opacity .3s ease}
+.product-card:hover .border-beam{opacity:1}
+.border-beam::before{content:'';position:absolute;top:50%;left:50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,var(--ago-orange) 10%,transparent 20%);transform:translate(-50%,-50%);animation:beamRotate 3s linear infinite}
+@keyframes beamRotate{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.border-beam-inner{position:absolute;inset:1px;border-radius:calc(var(--radius-lg) - 1px);background:var(--ago-white)}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 5 — MARQUEE MASK-IMAGE
+   ══════════════════════════════════════════════════════ */
+.brands-wrapper{mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%)}
+.brands-track:hover{animation-play-state:paused}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 6 — BOUTONS SHIMMER CTA
+   ══════════════════════════════════════════════════════ */
+.btn-shimmer{position:relative;overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.btn-shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:shimmerSlide 2.5s ease-in-out infinite}
+@keyframes shimmerSlide{0%{left:-100%}50%,100%{left:150%}}
+.btn-outline-orange{background:transparent;border:1.5px solid var(--ago-orange);color:var(--ago-orange);transition:all .2s ease}
+.btn-outline-orange:hover{background:var(--ago-orange);color:#fff}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 7 — AVANTAGES ICON POP-IN
+   ══════════════════════════════════════════════════════ */
+@keyframes iconPop{0%{transform:scale(0) rotate(-10deg);opacity:0}70%{transform:scale(1.15) rotate(3deg)}100%{transform:scale(1) rotate(0deg);opacity:1}}
+.advantage-icon.aos-animate{animation:iconPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+.advantage-card:hover .advantage-icon{transform:scale(1.1) rotate(5deg);transition:transform .3s ease}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 8 — COUNTDOWN FLIP TIMER
+   ══════════════════════════════════════════════════════ */
+.countdown-item{position:relative;perspective:400px}
+.countdown-digit{display:inline-block;transition:transform .4s ease;transform-style:preserve-3d}
+.countdown-digit.flipping{animation:flipDown .4s ease}
+@keyframes flipDown{0%{transform:rotateX(0deg)}50%{transform:rotateX(-90deg)}100%{transform:rotateX(0deg)}}
+.countdown-separator{animation:pulseSep 1s ease infinite;color:var(--ago-orange)}
+@keyframes pulseSep{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 9 — WHATSAPP FAB PULSE
+   ══════════════════════════════════════════════════════ */
+.whatsapp-float{animation:waPulseFab 2s ease-out infinite;will-change:transform}
+@keyframes waPulseFab{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.whatsapp-float::before{animation:none!important}
+
+/* ══════════════════════════════════════════════════════
+   COMPOSANT 10 — HAMBURGER ANIMÉ (3 barres → X)
+   ══════════════════════════════════════════════════════ */
+.hamburger span{transition:transform .3s ease,opacity .3s ease;display:block}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px)}
+
+/* ══════════════════════════════════════════════════════
+   PERFORMANCE: will-change + touch-action
+   ══════════════════════════════════════════════════════ */
+.btn,.btn-shimmer,.btn-outline-orange,.category-chip,.filter-btn,.wishlist-btn,.header-icon,.nav-link,.footer-links a,.mobile-nav-links li a{touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer}
+.will-animate{will-change:transform}
+
+/* ═══ MOBILE BAS DE GAMME — désactivation animations ══ */
+@media (max-width:480px){
+  .hero-retro-grid-inner{animation-duration:30s}
+  .hero-title .word{transition-delay:0s!important}
+  .hero-slogan-typed{animation-duration:1.8s}
+  .btn-shimmer::after{animation:none}
+  .whatsapp-float{width:46px;height:46px;bottom:16px;right:16px}
+  .border-beam{display:none!important}
+  .countdown-digit.flipping{animation-duration:.25s}
+}
+@media (max-width:380px){
+  [data-aos]{opacity:1!important;transform:none!important}
+  .hero-retro-grid-inner{animation:none!important;opacity:.25}
+  .whatsapp-float{animation:none!important}
+  .brands-track{animation-duration:30s!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero-retro-grid-inner{animation:none}
+  .brands-track{animation:none}
+}

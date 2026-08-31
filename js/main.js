@@ -15,10 +15,18 @@
         if (typeof AOS === 'undefined') return;
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         AOS.init({
-            duration: 600,
+            duration: 550,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 80
+            offset: 50,
+            delay: 0,
+            disable: function() {
+                var slowConnection = navigator.connection &&
+                    (navigator.connection.saveData ||
+                     navigator.connection.effectiveType === 'slow-2g' ||
+                     navigator.connection.effectiveType === '2g');
+                return window.innerWidth < 380 || slowConnection;
+            }
         });
     }
 
@@ -316,6 +324,55 @@
         else { badge.textContent = 'Fermé'; badge.classList.add('badge-status--closed'); }
     }
 
+    // ===== 12. HEADER SCROLL BLUR =====
+    function initHeaderScrollBlur() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 80);
+        }, { passive: true });
+    }
+
+    // ===== 13. HERO TEXT REVEAL (mot par mot) =====
+    function initHeroTextReveal() {
+        const words = document.querySelectorAll('.hero-title .word');
+        if (!words.length) return;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    words.forEach(w => w.classList.add('visible'));
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) observer.observe(heroTitle);
+    }
+
+    // ===== 14. COUNTDOWN FLIP ANIMATION =====
+    function initCountdownFlip() {
+        const digits = document.querySelectorAll('.countdown-digit');
+        if (!digits.length) return;
+        const prevValues = {};
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(m => {
+                const el = m.target;
+                const id = el.dataset.unit || el.textContent;
+                const newVal = el.textContent;
+                if (prevValues[id] !== undefined && prevValues[id] !== newVal) {
+                    el.classList.remove('flipping');
+                    void el.offsetWidth;
+                    el.classList.add('flipping');
+                }
+                prevValues[id] = newVal;
+            });
+        });
+        digits.forEach(d => {
+            prevValues[d.dataset.unit || d.textContent] = d.textContent;
+            observer.observe(d, { childList: true, characterData: true, subtree: true });
+        });
+    }
+
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
         initAOS();
@@ -331,6 +388,9 @@
         initSmoothScroll();
         initHeaderScroll();
         initOpeningStatus();
+        initHeaderScrollBlur();
+        initHeroTextReveal();
+        initCountdownFlip();
     });
 
 })();
