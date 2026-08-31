@@ -74,6 +74,9 @@ img{max-width:100%;height:auto;display:block}
 
 .btn-block{display:flex;width:100%}
 
+/* Bouton secondaire "Voir les détails" sur les cartes produit/offre */
+.btn-details{margin-top:8px;width:100%;justify-content:center}
+
 /* ===== TOP BAR ===== */
 .top-bar{background:var(--ago-slate-dark);color:#fff;min-height:30px;display:flex;align-items:center;font-size:12px;padding-top:env(safe-area-inset-top,0)}
 .top-bar a{color:#fff}
