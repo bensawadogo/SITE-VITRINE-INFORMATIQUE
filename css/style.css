@@ -446,7 +446,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    COMPOSANT 3 — NAVBAR STICKY BLUR + UNDERLINE
    ══════════════════════════════════════════════════════ */
 .header.scrolled{background:var(--ago-slate-dark)!important;box-shadow:0 2px 20px rgba(0,0,0,.15)}
-.header.scrolled .logo-link{background:rgba(255,255,255,.95);border-radius:10px;padding:4px 8px}
 .nav-link{position:relative}
 .nav-link::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:var(--ago-orange);transition:width .3s ease,left .3s ease}
 .nav-link:hover::after,.nav-link.active::after{width:100%;left:0}
