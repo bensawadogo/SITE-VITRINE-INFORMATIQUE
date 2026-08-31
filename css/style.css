@@ -335,7 +335,8 @@ img{max-width:100%;height:auto;display:block}
   .header-icons .header-icon{display:none}
   .header-icons{margin-left:auto}
   .search-bar{display:none}
-  .logo-img{width:120px;height:auto}
+  .logo-img{width:140px;height:auto}
+  .footer .logo-img{width:90px;height:auto}
   .hero-brands{margin-top:28px}
   .advantages-section .col-6{margin-bottom:16px}
   .products-grid{grid-template-columns:repeat(2,1fr)}
@@ -358,7 +359,7 @@ img{max-width:100%;height:auto;display:block}
   .products-grid{grid-template-columns:1fr}
   .section-title{font-size:22px}
   .countdown-item span{font-size:22px}
-  .logo-img{width:100px;height:auto}
+  .logo-img{width:140px;height:auto}
   .footer .logo-img{width:80px;height:auto}
 }
 
