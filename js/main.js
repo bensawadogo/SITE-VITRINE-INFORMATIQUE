@@ -382,6 +382,69 @@
         });
     }
 
+    // ===== 15. MARQUEE MARQUES — défilement continu GARANTI (desktop + mobile) =====
+    // Certains OS/config (Windows "Afficher les animations" désactivé, mode
+    // économie d'énergie, certains lanceurs Android) envoient
+    // prefers-reduced-motion: reduce → les animations CSS sont coupées et la
+    // marquee reste figée. On anime donc en JavaScript (requestAnimationFrame),
+    // ce qui fonctionne dans 100 % des cas, sans dépendre du CSS.
+    function initMarquee() {
+        const track = document.querySelector('.brands-track');
+        if (!track) return;
+
+        // Désactive l'animation CSS (elle écraserait la transform du JS)
+        track.style.animation = 'none';
+
+        const children = track.children;
+        if (!children.length) return;
+
+        // Vitesse en px par frame (plus rapide sur mobile pour un effet visible)
+        let speed = window.innerWidth < 480 ? 0.9 : 0.55;
+
+        // Point de boucle : position exacte de la 1re marque dupliquée
+        const splitIndex = Math.floor(children.length / 2);
+        let loopAt = children[splitIndex] ? children[splitIndex].offsetLeft : track.scrollWidth / 2;
+
+        let offset = 0;
+        let rafId = null;
+
+        function step() {
+            offset -= speed;
+            if (Math.abs(offset) >= loopAt) offset += loopAt;
+            track.style.transform = 'translate3d(' + offset + 'px,0,0)';
+            rafId = requestAnimationFrame(step);
+        }
+        function start() {
+            if (rafId === null) rafId = requestAnimationFrame(step);
+        }
+        function stop() {
+            if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        // N'anime que quand la section est visible (économie batterie/GPS mobile)
+        const section = track.closest('.brands-marquee');
+        if ('IntersectionObserver' in window && section) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) start();
+                    else stop();
+                });
+            }, { threshold: 0.05 });
+            io.observe(section);
+        } else {
+            start();
+        }
+
+        // Recalcule vitesse/point de boucle si la fenêtre change ou images chargées
+        window.addEventListener('resize', () => {
+            speed = window.innerWidth < 480 ? 0.9 : 0.55;
+            if (children[splitIndex]) loopAt = children[splitIndex].offsetLeft;
+        }, { passive: true });
+        window.addEventListener('load', () => {
+            if (children[splitIndex]) loopAt = children[splitIndex].offsetLeft;
+        });
+    }
+
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
         initAOS();
@@ -400,6 +463,7 @@
         initHeaderScrollBlur();
         initHeroTextReveal();
         initCountdownFlip();
+        initMarquee();
     });
 
 })();
