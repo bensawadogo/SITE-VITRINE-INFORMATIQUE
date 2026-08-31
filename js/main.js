@@ -328,13 +328,8 @@
     function initHeaderScrollBlur() {
         const header = document.querySelector('.header');
         if (!header) return;
-        const logoImgs = header.querySelectorAll('.logo-img');
-        const defaultSrc = 'assets/images/logo_ago.png';
-        const whiteSrc = 'assets/images/logo_ago_white.png';
         window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY > 80;
-            header.classList.toggle('scrolled', scrolled);
-            logoImgs.forEach(img => { img.src = scrolled ? whiteSrc : defaultSrc; });
+            header.classList.toggle('scrolled', window.scrollY > 80);
         }, { passive: true });
     }
 
