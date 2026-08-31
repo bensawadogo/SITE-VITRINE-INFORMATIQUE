@@ -562,3 +562,13 @@ i.ti{display:inline-block;width:1em;height:1em;line-height:1;vertical-align:-.12
 }
 .products-section{contain-intrinsic-size:auto 2600px} /* ~4 rangées de cartes */
 .map-section{contain-intrinsic-size:auto 480px}       /* iframe carte incluse */
+
+/* 3) GARDE-FOU ANTI-PAGE-BLANCHE : si le JS active html.no-aos
+      (AOS CKO / connexion lente / reduced-motion / petit écran),
+      tout le contenu [data-aos] redevient visible immédiatement.
+      Sans cette règle, [data-aos]{opacity:0} peut laisser la page blanche. */
+html.no-aos [data-aos]{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}

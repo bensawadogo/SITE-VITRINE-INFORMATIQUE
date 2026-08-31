@@ -12,22 +12,31 @@
 
     // ===== INIT AOS =====
     function initAOS() {
-        if (typeof AOS === 'undefined') return;
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        AOS.init({
-            duration: 550,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50,
-            delay: 0,
-            disable: function() {
-                var slowConnection = navigator.connection &&
-                    (navigator.connection.saveData ||
-                     navigator.connection.effectiveType === 'slow-2g' ||
-                     navigator.connection.effectiveType === '2g');
-                return window.innerWidth < 380 || slowConnection;
-            }
-        });
+        // Garde-fou anti-page-blanche : si AOS est indisponible OU si on détecte
+        // (connexion lente / petit écran / reduced-motion), on force l'affichage
+        // de tout le contenu au lieu de laisser [data-aos]{opacity:0} cacher le site.
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const slowConn = navigator.connection &&
+            (navigator.connection.saveData ||
+             navigator.connection.effectiveType === 'slow-2g' ||
+             navigator.connection.effectiveType === '2g');
+        const tinyScreen = window.innerWidth < 380;
+
+        if (typeof AOS === 'undefined' || reduceMotion || slowConn || tinyScreen) {
+            document.documentElement.classList.add('no-aos');
+            return;
+        }
+        try {
+            AOS.init({
+                duration: 550,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50,
+                delay: 0
+            });
+        } catch (e) {
+            document.documentElement.classList.add('no-aos');
+        }
     }
 
     // ===== 1. HERO SLIDER =====
