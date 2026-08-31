@@ -446,10 +446,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    COMPOSANT 3 — NAVBAR STICKY BLUR + UNDERLINE
    ══════════════════════════════════════════════════════ */
 .header.scrolled{background:var(--ago-slate-dark)!important;box-shadow:0 2px 20px rgba(0,0,0,.15)}
-.header.scrolled .logo-name{color:#fff}
-.header.scrolled .logo-accent{color:var(--ago-orange)}
-.header.scrolled .logo-sarl{color:rgba(255,255,255,.7)}
-.header.scrolled .hamburger span{background:#fff}
 .header.scrolled .logo-img{filter:brightness(0) invert(1);width:140px}
 .nav-link{position:relative}
 .nav-link::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:var(--ago-orange);transition:width .3s ease,left .3s ease}
