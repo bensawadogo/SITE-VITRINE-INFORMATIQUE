@@ -220,34 +220,22 @@
         </div>
     </nav>
 
-    <!-- ===== SECTION 4: HERO (boutique physique — statique, épuré, pro) ===== -->
+        <!-- ===== SECTION 4: HERO ===== -->
     <section class="hero" id="accueil">
         <div class="container">
             <div class="row align-items-center g-4">
-                <div class="col-lg-6">
-                    <span class="hero-badge"><i class="ti ti-store"></i> Magasin spécialiste depuis 2018</span>
-                    <h1 class="hero-title">L'informatique de <span class="text-orange">confiance</span> à Ouagadougou</h1>
-                    <p class="hero-subtitle">Vente, installation et réparation de laptops, desktops, écrans et accessoires. <strong>Secteur 15, Ouagadougou</strong> — venez nous rencontrer en boutique.</p>
-                    <ul class="hero-points">
-                        <li><i class="ti ti-check"></i> <strong>Produits garantis</strong> 6 à 12 mois selon produit</li>
-                        <li><i class="ti ti-check"></i> <strong>Livraison & installation</strong> à Ouagadougou & environs</li>
-                        <li><i class="ti ti-check"></i> <strong>SAV & réparations</strong> techniciens certifiés sur place</li>
-                    </ul>
+                <div class="col-lg-7">
+                    <h1 class="hero-title">L'informatique de <span class="text-orange">confiance</span><br>à Ouagadougou</h1>
+                    <p class="hero-subtitle">Laptops, desktops, écrans & accessoires. Livraison & SAV sur place.</p>
                     <div class="hero-actions">
                         <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20voudrais%20des%20informations%20sur%20vos%20produits" class="btn btn-orange" target="_blank" rel="noopener">
-                            <i class="ti ti-brand-whatsapp"></i> Commander sur WhatsApp
+                            <i class="ti ti-brand-whatsapp"></i> Commander
                         </a>
-                        <a href="#produits" class="btn btn-outline-light">Voir nos produits</a>
-                    </div>
-                    <div class="hero-infos">
-                        <a href="tel:+22607000000"><i class="ti ti-phone"></i> +226 07 00 00 00</a>
-                        <span><i class="ti ti-clock"></i> Lun–Sam · 8h – 18h</span>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="hero-store-photo">
                         <img src="images/boutique.jpg" alt="La boutique AGO Tech Company à Ouagadougou" width="800" height="600" loading="eager">
-                        <div class="hero-store-tag"><i class="ti ti-map-pin"></i> Notre boutique · Secteur 15, Ouagadougou</div>
                     </div>
                 </div>
             </div>
@@ -794,25 +782,59 @@
         <i class="ti ti-brand-whatsapp"></i>
     </a>
 
-    <!-- ===== MOBILE NAV ===== -->
+    <!-- ===== MOBILE NAV (menu hamburger — univers produits type grand e-commerce) ===== -->
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
             <span class="fw-semibold">AGO Tech Company</span>
             <button class="mobile-close" id="mobileClose" aria-label="Fermer">&times;</button>
         </div>
+
         <ul class="mobile-nav-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#produits" data-cat="laptops">Laptops</a></li>
-            <li><a href="#produits" data-cat="desktops">Desktops</a></li>
-            <li><a href="#produits" data-cat="accessoires">Accessoires</a></li>
-            <li><a href="#produits" data-cat="ecrans">Écrans</a></li>
-            <li><a href="#offres">Promotions</a></li>
-            <li><a href="#localisation">Nous trouver</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#accueil" class="mn-main"><i class="ti ti-home"></i> Accueil</a></li>
+
+            <li class="mn-group-title">Nos produits</li>
+            <li>
+                <a href="#produits" data-cat="laptops" class="mn-main"><i class="ti ti-device-laptop"></i> Laptops<span class="mn-chevron"><i class="ti ti-chevron-right"></i></span></a>
+                <ul class="mobile-nav-sub">
+                    <li><a href="#produits" data-cat="laptops">Tous les laptops</a></li>
+                    <li><a href="#produits" data-cat="laptops" data-brand="hp">HP</a></li>
+                    <li><a href="#produits" data-cat="laptops" data-brand="lenovo">Lenovo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#produits" data-cat="desktops" class="mn-main"><i class="ti ti-device-desktop"></i> Desktops<span class="mn-chevron"><i class="ti ti-chevron-right"></i></span></a>
+                <ul class="mobile-nav-sub">
+                    <li><a href="#produits" data-cat="desktops">Tous les desktops</a></li>
+                    <li><a href="#produits" data-cat="desktops" data-brand="dell">Dell</a></li>
+                    <li><a href="#produits" data-cat="desktops" data-brand="asus">Asus</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#produits" data-cat="ecrans" class="mn-main"><i class="ti ti-screen-share"></i> Écrans</a>
+            </li>
+            <li>
+                <a href="#produits" data-cat="accessoires" class="mn-main"><i class="ti ti-keyboard"></i> Accessoires<span class="mn-chevron"><i class="ti ti-chevron-right"></i></span></a>
+                <ul class="mobile-nav-sub">
+                    <li><a href="#produits" data-cat="accessoires">Tous les accessoires</a></li>
+                    <li><a href="#produits" data-cat="accessoires" data-sub="claviers">Claviers & Souris</a></li>
+                    <li><a href="#produits" data-cat="accessoires" data-sub="imprimantes">Imprimantes</a></li>
+                </ul>
+            </li>
+            <li><a href="#offres" class="mn-main mn-promo"><i class="ti ti-discount-2"></i> Promotions</a></li>
         </ul>
-        <div class="mobile-social">
-            <a class="social-wa" href="https://wa.me/22607000000" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="images/brands/whatsapp.svg" alt="WhatsApp" class="mobile-social-logo"></a>
-            <a class="social-fb" href="https://facebook.com/agotechcompany" target="_blank" rel="noopener" aria-label="Facebook"><img src="images/brands/facebook.svg" alt="Facebook" class="mobile-social-logo"></a>
+
+        <div class="mobile-nav-footer">
+            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%20!%20Je%20voudrais%20des%20informations" class="mn-whatsapp-btn" target="_blank" rel="noopener">
+                <i class="ti ti-brand-whatsapp"></i> Commander sur WhatsApp
+            </a>
+            <ul class="mobile-nav-links">
+                <li><a href="#localisation" class="mn-main"><i class="ti ti-map-pin"></i> Nous trouver</a></li>
+                <li><a href="#contact" class="mn-main"><i class="ti ti-phone"></i> Contact & réparations</a></li>
+            </ul>
+            <div class="mobile-social">
+                <a class="social-wa" href="https://wa.me/22607000000" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="images/brands/whatsapp.svg" alt="WhatsApp" class="mobile-social-logo"></a>
+                <a class="social-fb" href="https://facebook.com/agotechcompany" target="_blank" rel="noopener" aria-label="Facebook"><img src="images/brands/facebook.svg" alt="Facebook" class="mobile-social-logo"></a>
+            </div>
         </div>
     </div>
     <div class="mobile-overlay" id="mobileOverlay"></div>

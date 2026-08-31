@@ -136,47 +136,53 @@ img{max-width:100%;height:auto;display:block}
 .nav-location{text-align:right;padding:14px 0}
 .nav-location svg{vertical-align:middle;margin-right:4px}
 
-/* ===== MOBILE NAV ===== */
-.mobile-nav{position:fixed;top:0;right:-320px;width:300px;height:100%;background:#fff;z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,.15);transition:right .3s ease;overflow-y:auto;padding:20px}
+/* ===== MOBILE NAV (menu hamburger — univers produits type e-commerce) ===== */
+.mobile-nav{position:fixed;top:0;right:-340px;width:320px;max-width:90vw;height:100%;background:#fff;z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,.18);transition:right .3s ease;overflow-y:auto;padding:20px 0}
 .mobile-nav.active{right:0}
-.mobile-nav-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid var(--ago-gray)}
-.mobile-close{font-size:28px;color:var(--ago-text-muted);background:none;border:none;line-height:1}
+.mobile-nav-header{display:flex;justify-content:space-between;align-items:center;padding:0 20px 15px;border-bottom:1px solid var(--ago-gray)}
+.mobile-nav-header .fw-semibold{color:var(--ago-slate-dark);font-size:15px}
+.mobile-close{font-size:28px;color:var(--ago-text-muted);background:none;border:none;line-height:1;cursor:pointer}
 .mobile-nav-links{list-style:none;padding:0;margin:0}
-.mobile-nav-links li a{display:block;padding:12px 0;font-size:15px;font-weight:500;color:var(--ago-text);border-bottom:1px solid var(--ago-gray)}
-.mobile-nav-links li a:hover{color:var(--ago-orange);padding-left:8px}
+.mobile-nav-links>li>a{display:flex;align-items:center;gap:12px;padding:13px 20px;font-size:14px;font-weight:500;color:var(--ago-text);border-bottom:1px solid var(--ago-gray)}
+.mobile-nav-links>li>a:hover{color:var(--ago-orange);background:var(--ago-slate-light)}
+.mobile-nav-links>li>a i{font-size:18px;color:var(--ago-slate);width:22px;text-align:center}
+.mobile-nav-links>li>a:hover i{color:var(--ago-orange)}
+.mn-chevron{margin-left:auto;color:var(--ago-text-muted);font-size:14px}
+/* Titre de section "Nos produits" */
+.mn-group-title{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--ago-orange);padding:16px 20px 6px}
+/* Lien boutique "Promotions" */
+.mn-promo{color:var(--ago-orange)!important;font-weight:600!important}
+/* Sous-catégories en retrait */
+.mobile-nav-sub{list-style:none;padding:0 0 6px 54px;margin:0;background:var(--ago-offwhite)}
+.mobile-nav-sub li a{display:block;padding:9px 8px;font-size:13px;color:var(--ago-text-muted)}
+.mobile-nav-sub li a:hover{color:var(--ago-orange)}
+/* Popup de suivi du menu */
+.mobile-nav-footer{padding-top:14px}
+.mn-whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 20px 16px;background:#26c159;color:#fff;font-weight:600;font-size:14px;padding:13px 14px;border-radius:10px;transition:var(--transition)}
+.mn-whatsapp-btn:hover{background:#1ea950;color:#fff}
+.mn-whatsapp-btn i{font-size:18px}
 .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1999;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .mobile-overlay.active{opacity:1;pointer-events:all}
 
 /* ===== HERO (boutique physique — statique, épuré) ===== */
-.hero{background:var(--ago-slate-dark);position:relative;overflow:hidden;padding:56px 0 64px}
+.hero{background:var(--ago-slate-dark);position:relative;overflow:hidden;padding:60px 0 50px}
 .hero .container{position:relative;z-index:1}
-.min-vh-50{min-height:50vh;display:flex;align-items:center}
-
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,82,10,.15);color:var(--ago-orange);border:1px solid rgba(232,82,10,.35);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:18px;text-transform:uppercase;letter-spacing:.5px}
-.hero-title{font-size:38px;font-weight:600;color:#fff;line-height:1.22;margin-bottom:16px}
+.hero-title{font-size:34px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:14px}
 .hero-title .text-orange{color:var(--ago-orange)}
-.hero-subtitle{color:rgba(255,255,255,.78);font-size:16px;line-height:1.7;margin-bottom:22px}
-.hero-subtitle strong{color:#fff}
-.hero-points{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:9px}
-.hero-points li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px}
-.hero-points li i{color:var(--ago-orange);font-size:16px;flex-shrink:0}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.hero-subtitle{color:rgba(255,255,255,.8);font-size:15px;line-height:1.6;margin-bottom:22px;max-width:540px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero-actions .btn{font-size:14px}
-.hero-infos{display:flex;flex-wrap:wrap;gap:18px;font-size:14px;color:rgba(255,255,255,.8);border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
-.hero-infos a{color:#fff;display:inline-flex;align-items:center;gap:8px}
-.hero-infos a:hover{color:var(--ago-orange)}
-.hero-infos span{display:inline-flex;align-items:center;gap:8px}
 
-/* Photo de la boutique (le client place sa photo dans images/boutique.jpg) */
-.hero-store-photo{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15)}
+/* Photo de la boutique */
+.hero-store-photo{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);max-width:420px}
 .hero-store-photo img{width:100%;height:auto;display:block}
-.hero-store-tag{position:absolute;left:12px;bottom:12px;right:12px;background:rgba(30,53,69,.85);backdrop-filter:blur(6px);color:#fff;font-size:13px;padding:10px 14px;border-radius:8px;display:flex;align-items:center;gap:8px}
-.hero-store-tag i{color:var(--ago-orange)}
 
 @media (max-width:991px){
-  .hero{padding:40px 0 48px}
-  .hero-title{font-size:28px}
-  .hero-store-photo{margin-top:10px}
+  .hero{padding:40px 0 40px}
+  .hero-title{font-size:26px}
+  .hero-store-photo{margin-top:14px}
+  .row.align-items-center{max-width:600px}
 }
 
 /* ===== SECTION HEADERS ===== */
@@ -348,7 +354,19 @@ img{max-width:100%;height:auto;display:block}
 }
 
 @media (max-width:992px){
-  .products-grid{grid-template-columns:repeat(3,1fr)}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  /* Carte condensée sur mobile */
+  .product-image{padding:12px}
+  .product-photo{height:140px}
+  .product-badge{font-size:10px;padding:2px 8px}
+  .wishlist-btn{width:36px;height:36px}
+  .wishlist-btn .ti{font-size:16px}
+  .product-info{padding:14px}
+  .product-card h3{font-size:13px;margin-bottom:4px}
+  .product-specs{font-size:11px}
+  .product-rating,.rating-count,.stock-bar{display:none}
+  .product-price strong{font-size:15px}
+  .btn-block{font-size:12px;padding:8px 6px}
 }
 
 @media (max-width:768px){
@@ -540,10 +558,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .btn,.btn-shimmer,.btn-outline-orange,.category-chip,.filter-btn,.wishlist-btn,.header-icon,.nav-link,.footer-links a,.mobile-nav-links li a{touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:pointer}
 .will-animate{will-change:transform}
 
-/* ═══ MOBILE BAS DE GAMME — désactivation animations ══ */
+/* ═══ MOBILE BAS DE GAMME — optimisation ══ */
 @media (max-width:480px){
-  .hero-retro-grid-inner{animation-duration:30s}
-  .hero-title .word{transition-delay:0s!important}
+  .hero-title .word{opacity:1!important;transform:none!important}
   .hero-slogan-typed{animation-duration:1.8s}
   .btn-shimmer::after{animation:none}
   .whatsapp-float{width:46px;height:46px;bottom:16px;right:16px}
@@ -551,10 +568,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,
   .countdown-digit.flipping{animation-duration:.25s}
   /* Offres de la semaine : resserrer pour éviter le débordement du bouton
      "Commander sur WhatsApp" dans la colonne étroite */
-  .offer-info{padding:16px}
-  .offer-info h3{font-size:15px}
+  .offer-info{padding:12px}
+  .offer-info h3{font-size:13px}
   .offer-pricing strong{font-size:17px}
-  .offer-info .btn{font-size:13px;padding:10px 8px;white-space:normal}
+  .offer-info .btn{font-size:12px;padding:8px 4px;white-space:normal;line-height:1.2}
   /* Marques : défilement visible sur mobile (sinon trop lent → immobile) */
   .brands-track{animation-duration:15s}
 }
