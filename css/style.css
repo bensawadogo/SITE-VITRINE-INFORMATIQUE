@@ -180,11 +180,15 @@ img{max-width:100%;height:auto;display:block}
 .offers-section{background:var(--ago-offwhite);padding:72px 0}
 .countdown-wrapper{text-align:center;margin-bottom:36px}
 .countdown-label{font-size:14px;color:var(--ago-text-muted);display:block;margin-bottom:12px}
-.countdown{display:inline-flex;align-items:center;gap:6px;background:var(--ago-slate-dark);padding:12px 24px;border-radius:var(--radius)}
-.countdown-item{text-align:center}
-.countdown-item span{display:block;font-size:28px;font-weight:600;color:#fff;line-height:1}
-.countdown-item small{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase}
-.countdown-sep{font-size:24px;font-weight:700;color:var(--ago-orange);margin:0 2px;align-self:flex-start;margin-top:2px}
+.countdown{display:inline-flex;align-items:center;gap:10px}
+.flap-card{display:flex;flex-direction:column;align-items:center;gap:10px}
+.flap{position:relative;width:76px;height:86px;background:linear-gradient(180deg,#243B50,#16293A);border-radius:10px;box-shadow:inset 0 2px 6px rgba(0,0,0,.5),0 8px 16px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flap::before{content:'';position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0));pointer-events:none}
+.flap::after{content:'';position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(0,0,0,.6);transform:translateY(-50%);box-shadow:0 1px 0 rgba(255,255,255,.08);pointer-events:none}
+.flap-value{font-family:'Poppins',sans-serif;font-size:42px;font-weight:700;color:#F2F6FA;line-height:1;font-variant-numeric:tabular-nums}
+.flap-card small{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ago-text-muted)}
+.flap-sep{font-size:36px;font-weight:700;color:var(--ago-orange);align-self:center;margin-top:-22px;animation:pulseSep 1s ease infinite}
+@keyframes pulseSep{0%,100%{opacity:1}50%{opacity:.3}}
 
 .offer-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);transition:var(--transition);height:100%}
 .offer-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
@@ -358,7 +362,10 @@ img{max-width:100%;height:auto;display:block}
   .hero-title{font-size:22px}
   .products-grid{grid-template-columns:1fr}
   .section-title{font-size:22px}
-  .countdown-item span{font-size:22px}
+  .flap{width:58px;height:66px}
+  .flap-value{font-size:30px}
+  .flap-card small{font-size:10px}
+  .flap-sep{font-size:26px;margin-top:-18px}
   .logo-img{width:140px;height:auto}
   .footer .logo-img{width:80px;height:auto}
 }
@@ -487,11 +494,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    COMPOSANT 8 — COUNTDOWN FLIP TIMER
    ══════════════════════════════════════════════════════ */
 .countdown-item{position:relative;perspective:400px}
-.countdown-digit{display:inline-block;transition:transform .4s ease;transform-style:preserve-3d}
-.countdown-digit.flipping{animation:flipDown .4s ease}
-@keyframes flipDown{0%{transform:rotateX(0deg)}50%{transform:rotateX(-90deg)}100%{transform:rotateX(0deg)}}
+.countdown-digit{display:inline-block;transition:transform .3s ease;transform-style:preserve-3d}
+.countdown-digit.flipping{animation:flipDown .55s cubic-bezier(.2,.6,.2,1)}
+@keyframes flipDown{0%{transform:rotateX(0)}45%{transform:rotateX(-90deg);filter:brightness(.6)}55%{transform:rotateX(90deg);filter:brightness(.6)}100%{transform:rotateX(0);filter:brightness(1)}}
 .countdown-separator{animation:pulseSep 1s ease infinite;color:var(--ago-orange)}
-@keyframes pulseSep{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* ══════════════════════════════════════════════════════
    COMPOSANT 9 — WHATSAPP FAB PULSE
