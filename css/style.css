@@ -289,8 +289,8 @@ img{max-width:100%;height:auto;display:block}
 .footer-address{font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.7)}
 .footer a.text-white-50:hover{color:var(--ago-orange-mid)!important}
 .footer-social{display:flex;gap:10px}
-.footer-social-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.08);transition:var(--transition)}
-.footer-social-icon:hover{background:var(--ago-orange);transform:translateY(-2px)}
+.footer-social-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.12);transition:var(--transition)}
+.footer-social-icon:hover{background:#fff;transform:translateY(-2px)}
 
 .footer-title{font-size:16px;font-weight:600;color:#fff;margin-bottom:16px;position:relative;padding-bottom:10px}
 .footer-title::after{display:none}
@@ -396,6 +396,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .cat-icon .ti{font-size:24px}
 .header-icon .ti{font-size:22px}
 .footer-social-icon .ti{font-size:18px}
+.header-social-logo{width:26px;height:26px}
+.social-logo{width:20px;height:20px}
 .search-btn .ti{color:#fff}
 .hero-arrow .ti{width:20px;height:20px}
 .wishlist-btn .ti{width:20px;height:20px}
@@ -414,13 +416,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .product-image .brand-logo{width:62%;max-width:150px}
 .offer-image .brand-logo{width:72%;max-width:130px}
 .mobile-social{display:flex;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--ago-gray)}
-.mobile-social a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.mobile-social a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:var(--transition)}
 .mobile-social a:hover{transform:translateY(-2px)}
-.mobile-social .social-wa{background:#25D366}
-.mobile-social .social-fb{background:#1877F2}
-.mobile-social .social-ig{background:#E4405F}
-.mobile-social .social-li{background:#0A66C2}
-.mobile-social-logo{width:24px;height:24px;filter:brightness(0) invert(1)}
+.mobile-social-logo{width:26px;height:26px}
 .badge-status--open{background:#22c55e;color:#fff}
 .badge-status--closed{background:#dc2626;color:#fff}
 
