@@ -139,9 +139,9 @@ img{max-width:100%;height:auto;display:block}
 /* ===== HERO SLIDER ===== */
 .hero{background:var(--ago-slate-dark);position:relative;overflow:hidden}
 .hero .container{position:relative;z-index:2}
+.hero-slide{display:none;padding:72px 0;min-height:460px;background:rgba(30,53,69,.3);border-radius:12px}
 .hero .container{position:relative;z-index:1}
 .hero-decoration{position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,var(--ago-slate) 0%,transparent 100%);transform:skewX(-15deg);transform-origin:top;opacity:.4;z-index:0}
-.hero-slide{display:none;padding:72px 0;min-height:460px}
 .hero-slide.active{display:block;animation:heroFade .6s ease}
 @keyframes heroFade{from{opacity:0}to{opacity:1}}
 .min-vh-50{min-height:50vh;display:flex;align-items:center}
@@ -334,6 +334,7 @@ img{max-width:100%;height:auto;display:block}
   .hero-title{font-size:26px}
   .header-icons .header-icon{display:none}
   .header-icons{margin-left:auto}
+  .search-bar{display:none}
   .logo-img{width:120px;height:auto}
   .hero-brands{margin-top:28px}
   .advantages-section .col-6{margin-bottom:16px}
@@ -418,9 +419,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 /* ══════════════════════════════════════════════════════
    COMPOSANT 1 — FOND HERO RETRO-GRID (CSS pur)
    ══════════════════════════════════════════════════════ */
-.hero-retro-grid{pointer-events:none;position:absolute;inset:0;overflow:hidden;opacity:.7;perspective:200px;z-index:1}
-.hero-retro-grid-inner{position:absolute;inset:0;transform:rotateX(65deg);background-repeat:repeat;background-size:50px 50px;height:300vh;margin-left:-50%;transform-origin:100% 0 0;width:600vw;background-image:linear-gradient(to right,rgba(255,255,255,.18) 1px,transparent 0),linear-gradient(to bottom,rgba(255,255,255,.18) 1px,transparent 0);animation:retroGridScroll 15s linear infinite}
-.hero-retro-grid-fade{position:absolute;inset:0;background:linear-gradient(to top,#1E3545 2%,transparent 60%)}
+.hero-retro-grid{pointer-events:none;position:absolute;inset:0;overflow:hidden;opacity:.35;perspective:200px;z-index:1}
+.hero-retro-grid-inner{position:absolute;inset:0;transform:rotateX(65deg);background-repeat:repeat;background-size:50px 50px;height:300vh;margin-left:-50%;transform-origin:100% 0 0;width:600vw;background-image:linear-gradient(to right,rgba(255,255,255,.2) 1px,transparent 0),linear-gradient(to bottom,rgba(255,255,255,.2) 1px,transparent 0);animation:retroGridScroll 15s linear infinite}
+.hero-retro-grid-fade{position:absolute;inset:0;background:linear-gradient(to top,#1E3545 0%,transparent 50%)}
 @keyframes retroGridScroll{0%{transform:rotateX(65deg) translateY(-50%)}100%{transform:rotateX(65deg) translateY(0)}}
 
 /* ══════════════════════════════════════════════════════
