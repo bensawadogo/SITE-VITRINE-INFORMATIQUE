@@ -164,9 +164,15 @@ img{max-width:100%;height:auto;display:block}
 .mobile-nav-sub li a:hover{color:var(--ago-orange)}
 /* Popup de suivi du menu */
 .mobile-nav-footer{flex-shrink:0;padding-top:14px;margin-top:8px;border-top:1px solid var(--ago-gray)}
-.mn-whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 20px 16px;background:#26c159;color:#fff;font-weight:600;font-size:14px;padding:13px 14px;border-radius:10px;transition:var(--transition)}
-.mn-whatsapp-btn:hover{background:#1ea950;color:#fff}
-.mn-whatsapp-btn .wa-img{width:20px;height:20px;vertical-align:-5px}
+/* Actions finales : 2 boutons strictement symétriques côte à côte */
+.mn-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 20px 18px}
+.mn-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 8px;border-radius:10px;font-weight:600;font-size:13.5px;color:#fff;transition:var(--transition)}
+.mn-btn:hover{color:#fff;transform:translateY(-1px)}
+.mn-btn-wa{background:#26c159}
+.mn-btn-wa:hover{background:#1ea950}
+.mn-btn-fb{background:#1877F2}
+.mn-btn-fb:hover{background:#145dbf}
+.mn-btn-logo{width:18px;height:18px;flex-shrink:0}
 .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1999;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .mobile-overlay.active{opacity:1;pointer-events:all}
 
@@ -465,10 +471,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .brand-logo{width:auto;height:auto;max-width:100%;object-fit:contain}
 .product-image .brand-logo{width:62%;max-width:150px}
 .offer-image .brand-logo{width:72%;max-width:130px}
-.mobile-social{display:flex;justify-content:center;margin-top:18px}
-.mobile-social a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:var(--transition)}
-.mobile-social a:hover{transform:translateY(-2px)}
-.mobile-social-logo{width:26px;height:26px}
+
 .badge-status--open{background:#22c55e;color:#fff}
 .badge-status--closed{background:#dc2626;color:#fff}
 
