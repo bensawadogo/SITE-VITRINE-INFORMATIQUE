@@ -30,7 +30,7 @@
         // Le drawer existe sur l'accueil ; injecté sinon (pages produits générées)
         if (!document.getElementById('cartDrawer')) {
             document.body.insertAdjacentHTML('beforeend',
-                '<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Panier">' +
+                '<aside class="cart-drawer" id="cartDrawer" inert aria-label="Panier">' +
                 '<div class="cart-header"><span class="cart-title"><i data-lucide="shopping-cart"></i> Mon panier <span class="cart-header-count" id="cartHeaderCount">0</span></span>' +
                 '<button class="mobile-close" id="cartClose" aria-label="Fermer le panier">&times;</button></div>' +
                 '<div class="cart-items" id="cartItems"></div>' +
@@ -66,12 +66,14 @@
         function open() {
             drawer.classList.add('active');
             overlay.classList.add('active');
+            drawer.removeAttribute('inert');
             drawer.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
         function shut() {
             drawer.classList.remove('active');
             overlay.classList.remove('active');
+            drawer.setAttribute('inert', '');
             drawer.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }

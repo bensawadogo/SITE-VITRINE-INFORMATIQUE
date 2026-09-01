@@ -298,7 +298,7 @@ img{max-width:100%;height:auto;display:block}
 /* ===== NEWSLETTER ===== */
 .newsletter-section{background:var(--ago-slate);padding:64px 0}
 .newsletter-section h2{font-size:26px;font-weight:600;margin-bottom:8px}
-.newsletter-section p{color:rgba(255,255,255,.6);font-size:14px}
+.newsletter-section p{color:rgba(255,255,255,.82);font-size:14px}
 .newsletter-form{display:flex;gap:8px;max-width:450px;margin-left:auto}
 .newsletter-form input{flex:1;padding:12px 18px;border-radius:var(--radius);font-size:14px;background:#fff;border:2px solid transparent;outline:none}
 .newsletter-form input:focus{border-color:var(--ago-orange)}
@@ -327,7 +327,7 @@ img{max-width:100%;height:auto;display:block}
 .footer-logo-card{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:10px 14px;box-shadow:0 2px 12px rgba(0,0,0,.18)}
 .footer-logo-badge{width:36px;height:36px;background:var(--ago-orange);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .footer-slogan{color:var(--ago-orange);font-style:italic;font-size:13px;margin-bottom:12px}
-.footer-desc{font-size:13px;line-height:1.7;margin-bottom:12px;color:rgba(255,255,255,.6)}
+.footer-desc{font-size:13px;line-height:1.7;margin-bottom:12px;color:rgba(255,255,255,.78)}
 .footer-address{font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.7)}
 .footer a.text-white-50:hover{color:var(--ago-orange-mid)!important}
 .footer-social{display:flex;gap:10px}
@@ -338,14 +338,14 @@ img{max-width:100%;height:auto;display:block}
 .footer-title::after{display:none}
 .footer-links{list-style:none;padding:0;margin:0}
 .footer-links li{margin-bottom:8px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px;transition:var(--transition)}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:6px;transition:var(--transition)}
 .footer-links a:hover{color:var(--ago-orange-mid);padding-left:4px}
 .footer-links svg{flex-shrink:0}
 
 .footer-hours .hours-block h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
-.footer-hours p{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:2px}
+.footer-hours p{font-size:13px;color:rgba(255,255,255,.78);margin-bottom:2px}
 
-.footer-bottom{padding:20px 0;text-align:center;font-size:12px;border-top:1px solid rgba(255,255,255,.1);margin-top:30px;color:rgba(255,255,255,.5)}
+.footer-bottom{padding:20px 0;text-align:center;font-size:12px;border-top:1px solid rgba(255,255,255,.1);margin-top:30px;color:rgba(255,255,255,.65)}
 .footer-heart{color:var(--ago-orange);margin-top:4px}
 
 /* ===== WHATSAPP FLOAT ===== */
@@ -529,8 +529,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    COMPOSANT 6 — BOUTONS SHIMMER CTA
    ══════════════════════════════════════════════════════ */
 .btn-shimmer{position:relative;overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.btn-shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:shimmerSlide 2.5s ease-in-out infinite}
-@keyframes shimmerSlide{0%{left:-100%}50%,100%{left:150%}}
+.btn-shimmer::after{content:'';position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);animation:shimmerSlide 2.5s ease-in-out infinite}
+@keyframes shimmerSlide{0%{transform:translateX(-100%)}50%,100%{transform:translateX(350%)}}
 .btn-outline-orange{background:transparent;border:1.5px solid var(--ago-orange);color:var(--ago-orange);transition:all .2s ease}
 .btn-outline-orange:hover{background:var(--ago-orange);color:#fff}
 
@@ -554,7 +554,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    COMPOSANT 9 — WHATSAPP FAB PULSE
    ══════════════════════════════════════════════════════ */
 .whatsapp-float{animation:waPulseFab 2s ease-out infinite;will-change:transform}
-@keyframes waPulseFab{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+@keyframes waPulseFab{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 16px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 .whatsapp-float::before{animation:none!important}
 
 /* ══════════════════════════════════════════════════════
