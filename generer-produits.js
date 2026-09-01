@@ -206,6 +206,7 @@ for (const p of all) {
   let html = TPL
     .split('@@DESC@@').join(p.desc)
     .split('@@CANONICAL@@').join(p.slug + '.html')
+    .split('@@SLUG@@').join(p.slug)
     .split('@@NAME@@').join(p.name)
     .split('@@IMG_JPG@@').join(p.img)
     .split('@@IMG_WEBP@@').join(p.imgw)

@@ -445,6 +445,34 @@
         });
     }
 
+    // ===== 16. MENU MOBILE — accordéon des sous-catégories =====
+    // Le chevron est DEVANT le libellé ; au clic le sous-menu se déroule
+    // (classe .open + aria-expanded) sans quitter la page courante.
+    function initMobileSubmenus() {
+        const toggles = document.querySelectorAll('.mn-toggle');
+        if (!toggles.length) return;
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const item = toggle.closest('.mn-item');
+                if (!item) return;
+                const willOpen = !item.classList.contains('open');
+
+                // Accordéon : un seul sous-menu ouvert à la fois
+                document.querySelectorAll('.mn-item.open').forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        const t = other.querySelector('.mn-toggle');
+                        if (t) t.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                item.classList.toggle('open', willOpen);
+                toggle.setAttribute('aria-expanded', String(willOpen));
+            });
+        });
+    }
+
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
         initAOS();
@@ -456,6 +484,7 @@
         initWishlist();
         initNewsletter();
         initMobileNav();
+        initMobileSubmenus();
         initWhatsAppFloat();
         initSmoothScroll();
         initHeaderScroll();
