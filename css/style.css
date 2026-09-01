@@ -465,7 +465,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .brand-logo{width:auto;height:auto;max-width:100%;object-fit:contain}
 .product-image .brand-logo{width:62%;max-width:150px}
 .offer-image .brand-logo{width:72%;max-width:130px}
-.mobile-social{display:flex;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--ago-gray)}
+.mobile-social{display:flex;justify-content:center;margin-top:18px}
 .mobile-social a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:var(--transition)}
 .mobile-social a:hover{transform:translateY(-2px)}
 .mobile-social-logo{width:26px;height:26px}
