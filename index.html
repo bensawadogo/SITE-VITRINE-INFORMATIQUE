@@ -66,11 +66,7 @@
          car [data-aos]{opacity:0} sans JS = page blanche.) -->
     <link href="css/aos.css" rel="stylesheet">
 
-    <!-- Tabler Icons webfont — chargé en ASYNC (non bloquant) : retire ~90 Ko de CSS
-         du chemin de rendu critique et retarde les ~300 Ko de woff2.
-         L'espace des icônes est réservé par la règle i.ti de css/style.css → zéro CLS. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"></noscript>
+    <!-- Icônes : SVG Lucide inline (js/vendor/lucide.min.js, bundle local) — aucune police d'icônes CDN -->
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -126,15 +122,15 @@
         <div class="container d-flex justify-content-between align-items-center w-100">
             <div class="top-bar-left d-flex align-items-center gap-3">
                 <a href="tel:+22607000000" class="text-white text-decoration-none d-flex align-items-center gap-1">
-                    <i class="ti ti-phone"></i>
+                    <i data-lucide="phone"></i>
                     +226 07 00 00 00
                 </a>
                 <a href="mailto:info@agotechcompany.bf" class="text-white text-decoration-none d-flex align-items-center gap-1 d-none d-md-flex">
-                    <i class="ti ti-mail"></i>
+                    <i data-lucide="mail"></i>
                     info@agotechcompany.bf
                 </a>
                 <span class="d-none d-lg-flex align-items-center gap-1">
-                    <i class="ti ti-map-pin"></i>
+                    <i data-lucide="map-pin"></i>
                     Ouagadougou, Burkina Faso
                 </span>
             </div>
@@ -161,13 +157,13 @@
                     <div class="search-bar">
                         <input type="text" id="searchInput" class="form-control" placeholder="Rechercher laptops, desktops, accessoires…" aria-label="Rechercher">
                         <button class="search-btn" type="button" aria-label="Rechercher">
-                            <i class="ti ti-search"></i>
+                            <i data-lucide="search"></i>
                         </button>
                     </div>
                 </div>
                 <div class="col-auto d-flex gap-2 header-icons order-2 order-md-3">
                     <button type="button" class="header-icon cart-btn" id="cartBtn" aria-label="Panier">
-                        <i class="ti ti-shopping-cart"></i>
+                        <i data-lucide="shopping-cart"></i>
                         <span class="cart-count" id="cartCount" hidden>0</span>
                     </button>
                     <a href="https://wa.me/22607000000" target="_blank" rel="noopener" class="header-icon" title="WhatsApp">
@@ -190,7 +186,7 @@
             <ul class="nav-links d-none d-lg-flex">
                 <li><a href="#accueil" class="nav-link active">Accueil</a></li>
                 <li class="has-dropdown">
-                    <a href="#produits" class="nav-link" data-cat="laptops">Laptops <i class="ti ti-chevron-down"></i></a>
+                    <a href="#produits" class="nav-link" data-cat="laptops">Laptops <i data-lucide="chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="#produits" data-cat="laptops">Tous les laptops</a></li>
                         <li><a href="#produits" data-cat="laptops" data-brand="hp">HP</a></li>
@@ -198,7 +194,7 @@
                     </ul>
                 </li>
                 <li class="has-dropdown">
-                    <a href="#produits" class="nav-link" data-cat="desktops">Desktops <i class="ti ti-chevron-down"></i></a>
+                    <a href="#produits" class="nav-link" data-cat="desktops">Desktops <i data-lucide="chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="#produits" data-cat="desktops">Tous les desktops</a></li>
                         <li><a href="#produits" data-cat="desktops" data-brand="dell">Dell</a></li>
@@ -206,7 +202,7 @@
                     </ul>
                 </li>
                 <li class="has-dropdown">
-                    <a href="#produits" class="nav-link" data-cat="accessoires">Accessoires <i class="ti ti-chevron-down"></i></a>
+                    <a href="#produits" class="nav-link" data-cat="accessoires">Accessoires <i data-lucide="chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="#produits" data-cat="accessoires">Tous les accessoires</a></li>
                         <li><a href="#produits" data-cat="accessoires" data-brand="imprimantes">Imprimantes</a></li>
@@ -218,7 +214,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-location d-none d-lg-block text-white-50 small">
-                <i class="ti ti-map-pin"></i>
+                <i data-lucide="map-pin"></i>
                 Secteur 15, Ouagadougou
             </div>
         </div>
@@ -233,7 +229,7 @@
                     <p class="hero-subtitle">Laptops, desktops, écrans & accessoires. Livraison & SAV sur place.</p>
                     <div class="hero-actions">
                         <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20voudrais%20des%20informations%20sur%20vos%20produits" class="btn btn-orange" target="_blank" rel="noopener">
-                            <i class="ti ti-brand-whatsapp"></i> Commander
+                            <img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"> Commander
                         </a>
                     </div>
                 </div>
@@ -253,7 +249,7 @@
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                     <div class="advantage-card">
                         <div class="advantage-icon icon-orange">
-                            <i class="ti ti-truck"></i>
+                            <i data-lucide="truck"></i>
                         </div>
                         <h3>Livraison rapide</h3>
                         <p>Ouagadougou & environs</p>
@@ -262,7 +258,7 @@
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="advantage-card">
                         <div class="advantage-icon icon-slate">
-                            <i class="ti ti-shield-check"></i>
+                            <i data-lucide="shield-check"></i>
                         </div>
                         <h3>Produits garantis</h3>
                         <p>6 à 12 mois selon produit</p>
@@ -271,7 +267,7 @@
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="advantage-card">
                         <div class="advantage-icon icon-orange">
-                            <i class="ti ti-tool"></i>
+                            <i data-lucide="wrench"></i>
                         </div>
                         <h3>SAV & réparations</h3>
                         <p>Techniciens certifiés sur place</p>
@@ -280,7 +276,7 @@
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="advantage-card">
                         <div class="advantage-icon icon-green">
-                            <i class="ti ti-headset"></i>
+                            <i data-lucide="headphones"></i>
                         </div>
                         <h3>Support 7j/7</h3>
                         <p>WhatsApp de 7h à 21h</p>
@@ -345,9 +341,9 @@
                                     </div>
                                     <div class="product-actions">
                                         <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="promo-hp250" data-name="HP 250 G9 Notebook" data-price="350000" aria-label="Ajouter HP 250 G9 au panier">
-                                            <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter au panier
+                                            <i data-lucide="shopping-cart"></i>&nbsp; Ajouter au panier
                                         </button>
-                                        <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20250%20G9%20Notebook%20%C3%A0%20350%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                                        <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20250%20G9%20Notebook%20%C3%A0%20350%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                                     </div>
                                     <a href="produits/hp-250-g9.html" class="btn btn-outline-orange btn-block mt-2 btn-details">Voir les détails</a>
                                 </div>
@@ -379,9 +375,9 @@
                                     </div>
                                     <div class="product-actions">
                                         <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="promo-dell3080" data-name="Dell OptiPlex 3080 MT" data-price="150000" aria-label="Ajouter Dell OptiPlex 3080 au panier">
-                                            <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter au panier
+                                            <i data-lucide="shopping-cart"></i>&nbsp; Ajouter au panier
                                         </button>
-                                        <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Dell%20OptiPlex%203080%20MT%20%C3%A0%20150%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                                        <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Dell%20OptiPlex%203080%20MT%20%C3%A0%20150%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                                     </div>
                                     <a href="produits/dell-optiplex-3080.html" class="btn btn-outline-orange btn-block mt-2 btn-details">Voir les détails</a>
                                 </div>
@@ -401,23 +397,23 @@
             </div>
             <div class="categories-grid" data-aos="fade-up" data-aos-delay="100">
                 <button class="category-chip active" data-filter="laptops">
-                    <div class="cat-icon"><i class="ti ti-device-laptop"></i></div>
+                    <div class="cat-icon"><i data-lucide="laptop"></i></div>
                     <span>Laptops</span>
                 </button>
                 <button class="category-chip" data-filter="desktops">
-                    <div class="cat-icon"><i class="ti ti-device-desktop"></i></div>
+                    <div class="cat-icon"><i data-lucide="monitor"></i></div>
                     <span>Desktops</span>
                 </button>
                 <button class="category-chip" data-filter="ecrans">
-                    <div class="cat-icon"><i class="ti ti-device-desktop"></i></div>
+                    <div class="cat-icon"><i data-lucide="monitor"></i></div>
                     <span>Écrans</span>
                 </button>
                 <button class="category-chip" data-filter="accessoires" data-sub="claviers">
-                    <div class="cat-icon"><i class="ti ti-keyboard"></i></div>
+                    <div class="cat-icon"><i data-lucide="keyboard"></i></div>
                     <span>Claviers & Souris</span>
                 </button>
                 <button class="category-chip" data-filter="accessoires" data-sub="imprimantes">
-                    <div class="cat-icon"><i class="ti ti-printer"></i></div>
+                    <div class="cat-icon"><i data-lucide="printer"></i></div>
                     <span>Imprimantes</span>
                 </button>
             </div>
@@ -442,7 +438,7 @@
                     <div class="product-image" >
                         <span class="product-badge badge-promo">Promo</span>
                         <button class="wishlist-btn" data-id="1" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p1.webp"><img class="product-photo" src="images/products/p1.jpg" alt="HP 250 G9 Notebook" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -456,9 +452,9 @@
                         <div class="product-price"><s>420 000 FCFA</s> <strong class="text-orange">350 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p1" data-name="HP 250 G9 Notebook" data-price="350000" aria-label="Ajouter HP 250 G9 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20250%20G9%20Notebook%20%C3%A0%20350%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20250%20G9%20Notebook%20%C3%A0%20350%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/hp-250-g9.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -470,7 +466,7 @@
                     <div class="product-image" >
                         <span class="product-badge badge-new">Nouveau</span>
                         <button class="wishlist-btn" data-id="2" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p2.webp"><img class="product-photo" src="images/products/p2.jpg" alt="Lenovo ThinkPad E14" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -484,9 +480,9 @@
                         <div class="product-price"><strong>580 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p2" data-name="Lenovo ThinkPad E14 Gen 4" data-price="580000" aria-label="Ajouter Lenovo ThinkPad E14 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Lenovo%20ThinkPad%20E14%20Gen%204%20%C3%A0%20580%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Lenovo%20ThinkPad%20E14%20Gen%204%20%C3%A0%20580%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/lenovo-thinkpad-e14.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -497,7 +493,7 @@
                     <div class="border-beam"><div class="border-beam-inner"></div></div>
                     <div class="product-image" >
                         <button class="wishlist-btn" data-id="3" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <img class="brand-logo" src="images/brands/dell.svg" alt="Dell" loading="lazy">
                     </div>
@@ -511,9 +507,9 @@
                         <div class="product-price"><strong>265 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p3" data-name="Dell OptiPlex 3080 MT" data-price="265000" aria-label="Ajouter Dell OptiPlex 3080 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Dell%20OptiPlex%203080%20MT%20%C3%A0%20265%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Dell%20OptiPlex%203080%20MT%20%C3%A0%20265%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/dell-optiplex-3080.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -525,7 +521,7 @@
                     <div class="product-image" >
                         <span class="product-badge badge-promo">Promo</span>
                         <button class="wishlist-btn" data-id="4" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p4.webp"><img class="product-photo" src="images/products/p4.jpg" alt="Asus ExpertCenter D500" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -539,9 +535,9 @@
                         <div class="product-price"><s>185 000 FCFA</s> <strong class="text-orange">150 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p4" data-name="Asus ExpertCenter D500" data-price="150000" aria-label="Ajouter Asus ExpertCenter D500 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Asus%20ExpertCenter%20D500%20%C3%A0%20150%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Asus%20ExpertCenter%20D500%20%C3%A0%20150%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/asus-expertcenter-d500.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -553,7 +549,7 @@
                     <div class="product-image" >
                         <span class="product-badge badge-promo">Promo</span>
                         <button class="wishlist-btn" data-id="5" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p5.webp"><img class="product-photo" src="images/products/p5.jpg" alt="Samsung 24 S4 FHD" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -567,9 +563,9 @@
                         <div class="product-price"><s>110 000 FCFA</s> <strong class="text-orange">95 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p5" data-name="Samsung 24&quot; S4 FHD" data-price="95000" aria-label="Ajouter l'écran Samsung 24 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Samsung%2024%22%20S4%20FHD%20%C3%A0%2095%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Samsung%2024%22%20S4%20FHD%20%C3%A0%2095%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/samsung-24-s4-fhd.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -581,7 +577,7 @@
                     <div class="product-image" >
                         <span class="product-badge badge-new">Nouveau</span>
                         <button class="wishlist-btn" data-id="6" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p6.webp"><img class="product-photo" src="images/products/p6.jpg" alt="LG 27 FHD IPS" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -595,9 +591,9 @@
                         <div class="product-price"><strong>145 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p6" data-name="LG 27&quot; FHD IPS Monitor" data-price="145000" aria-label="Ajouter l'écran LG 27 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20LG%2027%22%20FHD%20IPS%20Monitor%20%C3%A0%20145%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20LG%2027%22%20FHD%20IPS%20Monitor%20%C3%A0%20145%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/lg-27-fhd-ips.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -608,7 +604,7 @@
                     <div class="border-beam"><div class="border-beam-inner"></div></div>
                     <div class="product-image" >
                         <button class="wishlist-btn" data-id="7" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p7.webp"><img class="product-photo" src="images/products/p7.jpg" alt="HP LaserJet Pro MFP M428" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -622,9 +618,9 @@
                         <div class="product-price"><strong>175 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p7" data-name="HP LaserJet Pro MFP M428" data-price="175000" aria-label="Ajouter HP LaserJet Pro M428 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20LaserJet%20Pro%20MFP%20M428%20%C3%A0%20175%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20LaserJet%20Pro%20MFP%20M428%20%C3%A0%20175%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/hp-laserjet-m428.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
@@ -635,7 +631,7 @@
                     <div class="border-beam"><div class="border-beam-inner"></div></div>
                     <div class="product-image" >
                         <button class="wishlist-btn" data-id="8" aria-label="Ajouter aux favoris">
-                            <i class="ti ti-heart"></i>
+                            <i data-lucide="heart"></i>
                         </button>
                         <picture><source type="image/webp" srcset="images/products/p8.webp"><img class="product-photo" src="images/products/p8.jpg" alt="Logitech MK295" loading="lazy" width="800" height="800"></picture>
                     </div>
@@ -649,16 +645,16 @@
                         <div class="product-price"><strong>28 000 FCFA</strong></div>
                         <div class="product-actions">
                             <button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="p8" data-name="Kit Clavier + Souris Logitech MK295" data-price="28000" aria-label="Ajouter le kit Logitech MK295 au panier">
-                                <i class="ti ti-shopping-cart-plus"></i>&nbsp; Ajouter
+                                <i data-lucide="shopping-cart"></i>&nbsp; Ajouter
                             </button>
-                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Kit%20Clavier%20%2B%20Souris%20Logitech%20MK295%20%C3%A0%2028%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+                            <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Kit%20Clavier%20%2B%20Souris%20Logitech%20MK295%20%C3%A0%2028%20000%20FCFA" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"></a>
                         </div>
                         <a href="produits/logitech-mk295.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>
                     </div>
                 </div>
             </div>
             <div class="no-results" id="noResults" style="display:none">
-                <i class="ti ti-search"></i>
+                <i data-lucide="search"></i>
                 <h3>Aucun produit trouvé</h3>
                 <p>Essayez une autre recherche ou catégorie</p>
             </div>
@@ -721,21 +717,21 @@
                 <div class="col-lg-5">
                     <div class="map-info">
                         <h3 class="map-info-title">
-                            <i class="ti ti-map-pin"></i>
+                            <i data-lucide="map-pin"></i>
                             Notre boutique
                         </h3>
                         <p class="map-address">Secteur 15, Ouagadougou<br>Burkina Faso</p>
                         <ul class="map-contact">
                             <li>
-                                <i class="ti ti-phone"></i>
+                                <i data-lucide="phone"></i>
                                 <a href="tel:+22607000000" class="text-decoration-none">+226 07 00 00 00</a>
                             </li>
                             <li>
-                                <i class="ti ti-mail"></i>
+                                <i data-lucide="mail"></i>
                                 <a href="mailto:info@agotechcompany.bf" class="text-decoration-none">info@agotechcompany.bf</a>
                             </li>
                             <li>
-                                <i class="ti ti-clock"></i>
+                                <i data-lucide="clock"></i>
                                 Lun–Sam · 8h – 18h
                             </li>
                         </ul>
@@ -777,11 +773,11 @@
                     <p class="footer-slogan"><em>VOTRE satisfaction, Notre responsabilité</em></p>
                     <p class="footer-desc">Votre spécialiste informatique à Ouagadougou. Vente, installation et maintenance de matériel informatique depuis 2018.</p>
                     <p class="footer-address">
-                        <i class="ti ti-map-pin"></i>
+                        <i data-lucide="map-pin"></i>
                         Secteur 15, Ouagadougou
                     </p>
-                    <p><a href="tel:+22607000000" class="text-white-50"><i class="ti ti-phone"></i>+226 07 00 00 00</a></p>
-                    <p><a href="mailto:info@agotechcompany.bf" class="text-white-50"><i class="ti ti-mail"></i>info@agotechcompany.bf</a></p>
+                    <p><a href="tel:+22607000000" class="text-white-50"><i data-lucide="phone"></i>+226 07 00 00 00</a></p>
+                    <p><a href="mailto:info@agotechcompany.bf" class="text-white-50"><i data-lucide="mail"></i>info@agotechcompany.bf</a></p>
                     <div class="footer-social mt-3 d-flex gap-2">
                         <a href="https://wa.me/22607000000" target="_blank" rel="noopener" class="footer-social-icon"><img src="images/brands/whatsapp.svg" alt="WhatsApp" class="social-logo"></a>
                         <a href="https://facebook.com/agotechcompany" target="_blank" rel="noopener" class="footer-social-icon"><img src="images/brands/facebook.svg" alt="Facebook" class="social-logo"></a>
@@ -790,23 +786,23 @@
                 <div class="col-lg-3 col-6">
                     <h3 class="footer-title">Liens rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#accueil"><i class="ti ti-chevron-right"></i>Accueil</a></li>
-                        <li><a href="#produits"><i class="ti ti-chevron-right"></i>Nos produits</a></li>
-                        <li><a href="#offres"><i class="ti ti-chevron-right"></i>Promotions</a></li>
-                        <li><a href="#localisation"><i class="ti ti-chevron-right"></i>Nous trouver</a></li>
-                        <li><a href="#contact"><i class="ti ti-chevron-right"></i>À propos</a></li>
-                        <li><a href="#contact"><i class="ti ti-chevron-right"></i>Contact</a></li>
+                        <li><a href="#accueil"><i data-lucide="chevron-right"></i>Accueil</a></li>
+                        <li><a href="#produits"><i data-lucide="chevron-right"></i>Nos produits</a></li>
+                        <li><a href="#offres"><i data-lucide="chevron-right"></i>Promotions</a></li>
+                        <li><a href="#localisation"><i data-lucide="chevron-right"></i>Nous trouver</a></li>
+                        <li><a href="#contact"><i data-lucide="chevron-right"></i>À propos</a></li>
+                        <li><a href="#contact"><i data-lucide="chevron-right"></i>Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-6">
                     <h3 class="footer-title">Catégories</h3>
                     <ul class="footer-links">
-                        <li><a href="#produits" data-cat="laptops"><i class="ti ti-chevron-right"></i>Laptops</a></li>
-                        <li><a href="#produits" data-cat="desktops"><i class="ti ti-chevron-right"></i>Desktops</a></li>
-                        <li><a href="#produits" data-cat="ecrans"><i class="ti ti-chevron-right"></i>Écrans</a></li>
-                        <li><a href="#produits" data-cat="accessoires"><i class="ti ti-chevron-right"></i>Accessoires</a></li>
-                        <li><a href="#produits" data-cat="imprimantes"><i class="ti ti-chevron-right"></i>Imprimantes</a></li>
-                        <li><a href="#contact"><i class="ti ti-chevron-right"></i>Réparations</a></li>
+                        <li><a href="#produits" data-cat="laptops"><i data-lucide="chevron-right"></i>Laptops</a></li>
+                        <li><a href="#produits" data-cat="desktops"><i data-lucide="chevron-right"></i>Desktops</a></li>
+                        <li><a href="#produits" data-cat="ecrans"><i data-lucide="chevron-right"></i>Écrans</a></li>
+                        <li><a href="#produits" data-cat="accessoires"><i data-lucide="chevron-right"></i>Accessoires</a></li>
+                        <li><a href="#produits" data-cat="imprimantes"><i data-lucide="chevron-right"></i>Imprimantes</a></li>
+                        <li><a href="#contact"><i data-lucide="chevron-right"></i>Réparations</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -833,18 +829,18 @@
 
     <!-- ===== WHATSAPP FLOTTANT ===== -->
     <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%20!%20Je%20voudrais%20des%20informations%20sur%20vos%20produits" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="ti ti-brand-whatsapp"></i>
+        <img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img">
     </a>
 
     <!-- ===== PANIER (drawer latéral — commande via WhatsApp) ===== -->
     <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Panier">
         <div class="cart-header">
-            <span class="cart-title"><i class="ti ti-shopping-cart"></i> Mon panier <span class="cart-header-count" id="cartHeaderCount">0</span></span>
+            <span class="cart-title"><i data-lucide="shopping-cart"></i> Mon panier <span class="cart-header-count" id="cartHeaderCount">0</span></span>
             <button class="mobile-close" id="cartClose" aria-label="Fermer le panier">&times;</button>
         </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-empty" id="cartEmpty">
-            <i class="ti ti-shopping-cart-off"></i>
+            <i data-lucide="shopping-cart"></i>
             <p>Votre panier est vide</p>
             <span>Ajoutez des produits depuis le catalogue, puis commandez le tout en un clic sur WhatsApp.</span>
         </div>
@@ -852,7 +848,7 @@
             <div class="cart-total-row"><span>Total</span><strong id="cartTotal">0 FCFA</strong></div>
             <div class="wa-preview" id="cartWaPreview"></div>
             <button type="button" class="btn btn-orange btn-block" id="cartCheckout">
-                <i class="ti ti-brand-whatsapp"></i>&nbsp; Commander sur WhatsApp
+                <img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img">&nbsp; Commander sur WhatsApp
             </button>
             <button type="button" class="btn btn-outline-orange btn-block mt-2" id="cartClear">Vider le panier</button>
         </div>
@@ -863,23 +859,19 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
             <div class="mn-brand">
-                <span class="mn-brand-badge"><i class="ti ti-bolt"></i></span>
-                <span class="mn-brand-text">
-                    <span class="mn-brand-name">AGO Tech</span>
-                    <span class="mn-brand-sub">Company SARL</span>
-                </span>
+                <img src="assets/images/logo_ago.png" alt="AGO Tech Company SARL" class="mn-logo">
             </div>
             <button class="mobile-close" id="mobileClose" aria-label="Fermer">&times;</button>
         </div>
 
         <ul class="mobile-nav-links">
-            <li><a href="#accueil" class="mn-main"><i class="ti ti-home"></i> Accueil</a></li>
+            <li><a href="#accueil" class="mn-main"><i data-lucide="home"></i> Accueil</a></li>
 
             <li class="mn-group-title">Nos produits</li>
             <li class="mn-item">
                 <button type="button" class="mn-toggle" aria-expanded="false">
-                    <span class="mn-chevron"><i class="ti ti-chevron-down"></i></span>
-                    <i class="ti ti-device-laptop"></i> Laptops
+                    <span class="mn-chevron"><i data-lucide="chevron-down"></i></span>
+                    <i data-lucide="laptop"></i> Laptops
                 </button>
                 <ul class="mobile-nav-sub mn-collapse">
                     <li><a href="#produits" data-cat="laptops">Tous les laptops</a></li>
@@ -889,8 +881,8 @@
             </li>
             <li class="mn-item">
                 <button type="button" class="mn-toggle" aria-expanded="false">
-                    <span class="mn-chevron"><i class="ti ti-chevron-down"></i></span>
-                    <i class="ti ti-device-desktop"></i> Desktops
+                    <span class="mn-chevron"><i data-lucide="chevron-down"></i></span>
+                    <i data-lucide="monitor"></i> Desktops
                 </button>
                 <ul class="mobile-nav-sub mn-collapse">
                     <li><a href="#produits" data-cat="desktops">Tous les desktops</a></li>
@@ -899,12 +891,12 @@
                 </ul>
             </li>
             <li>
-                <a href="#produits" data-cat="ecrans" class="mn-main"><i class="ti ti-screen-share"></i> Écrans</a>
+                <a href="#produits" data-cat="ecrans" class="mn-main"><i data-lucide="screen-share"></i> Écrans</a>
             </li>
             <li class="mn-item">
                 <button type="button" class="mn-toggle" aria-expanded="false">
-                    <span class="mn-chevron"><i class="ti ti-chevron-down"></i></span>
-                    <i class="ti ti-keyboard"></i> Accessoires
+                    <span class="mn-chevron"><i data-lucide="chevron-down"></i></span>
+                    <i data-lucide="keyboard"></i> Accessoires
                 </button>
                 <ul class="mobile-nav-sub mn-collapse">
                     <li><a href="#produits" data-cat="accessoires">Tous les accessoires</a></li>
@@ -912,16 +904,16 @@
                     <li><a href="#produits" data-cat="accessoires" data-sub="imprimantes">Imprimantes</a></li>
                 </ul>
             </li>
-            <li><a href="#offres" class="mn-main mn-promo"><i class="ti ti-discount-2"></i> Promotions</a></li>
+            <li><a href="#offres" class="mn-main mn-promo"><i data-lucide="badge-percent"></i> Promotions</a></li>
         </ul>
 
         <div class="mobile-nav-footer">
             <a href="https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%20!%20Je%20voudrais%20des%20informations" class="mn-whatsapp-btn" target="_blank" rel="noopener">
-                <i class="ti ti-brand-whatsapp"></i> Commander sur WhatsApp
+                <img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img"> Commander sur WhatsApp
             </a>
             <ul class="mobile-nav-links">
-                <li><a href="#localisation" class="mn-main"><i class="ti ti-map-pin"></i> Nous trouver</a></li>
-                <li><a href="#contact" class="mn-main"><i class="ti ti-phone"></i> Contact & réparations</a></li>
+                <li><a href="#localisation" class="mn-main"><i data-lucide="map-pin"></i> Nous trouver</a></li>
+                <li><a href="#contact" class="mn-main"><i data-lucide="phone"></i> Contact & réparations</a></li>
             </ul>
             <div class="mobile-social">
                 <a class="social-wa" href="https://wa.me/22607000000" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="images/brands/whatsapp.svg" alt="WhatsApp" class="mobile-social-logo"></a>
@@ -934,6 +926,7 @@
     <!-- Scripts (deferred to avoid render-blocking) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/aos.js" defer></script>
+    <script src="js/vendor/lucide.min.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/cart.js" defer></script>
 </body>

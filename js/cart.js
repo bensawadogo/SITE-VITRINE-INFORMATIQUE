@@ -5,6 +5,8 @@
 
     const CART_KEY = 'ago_cart_v1';
     const WA_NUMBER = '22607000000';
+    // Racine relative : les pages produits vivent dans /produits/
+    const ROOT_PREFIX = location.pathname.indexOf('/produits/') !== -1 ? '..' : '.';
 
     function cartLoad() {
         try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
@@ -17,20 +19,27 @@
         return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
     }
 
+    /** Re-rend les icônes Lucide après une injection dynamique de HTML. */
+    function refreshLucide() {
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+            try { window.lucide.createIcons(); } catch (e) { /* bundle indisponible */ }
+        }
+    }
+
     function initCart() {
         // Le drawer existe sur l'accueil ; injecté sinon (pages produits générées)
         if (!document.getElementById('cartDrawer')) {
             document.body.insertAdjacentHTML('beforeend',
                 '<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Panier">' +
-                '<div class="cart-header"><span class="cart-title"><i class="ti ti-shopping-cart"></i> Mon panier <span class="cart-header-count" id="cartHeaderCount">0</span></span>' +
+                '<div class="cart-header"><span class="cart-title"><i data-lucide="shopping-cart"></i> Mon panier <span class="cart-header-count" id="cartHeaderCount">0</span></span>' +
                 '<button class="mobile-close" id="cartClose" aria-label="Fermer le panier">&times;</button></div>' +
                 '<div class="cart-items" id="cartItems"></div>' +
-                '<div class="cart-empty" id="cartEmpty"><i class="ti ti-shopping-cart-off"></i><p>Votre panier est vide</p>' +
+                '<div class="cart-empty" id="cartEmpty"><i data-lucide="shopping-cart"></i><p>Votre panier est vide</p>' +
                 '<span>Ajoutez des produits depuis le catalogue, puis commandez le tout en un clic sur WhatsApp.</span></div>' +
                 '<div class="cart-footer" id="cartFooter" hidden>' +
                 '<div class="cart-total-row"><span>Total</span><strong id="cartTotal">0 FCFA</strong></div>' +
                 '<div class="wa-preview" id="cartWaPreview"></div>' +
-                '<button type="button" class="btn btn-orange btn-block" id="cartCheckout"><i class="ti ti-brand-whatsapp"></i>&nbsp; Commander sur WhatsApp</button>' +
+                '<button type="button" class="btn btn-orange btn-block" id="cartCheckout"><img src="' + ROOT_PREFIX + '/images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img">&nbsp; Commander sur WhatsApp</button>' +
                 '<button type="button" class="btn btn-outline-orange btn-block mt-2" id="cartClear">Vider le panier</button>' +
                 '</div></aside><div class="cart-overlay" id="cartOverlay"></div>');
         }
@@ -38,7 +47,7 @@
         if (!document.getElementById('cartBtn')) {
             document.body.insertAdjacentHTML('beforeend',
                 '<button type="button" class="cart-fab" id="cartFab" aria-label="Ouvrir le panier">' +
-                '<i class="ti ti-shopping-cart"></i><span class="cart-count" id="cartFabCount" hidden>0</span></button>');
+                '<i data-lucide="shopping-cart"></i><span class="cart-count" id="cartFabCount" hidden>0</span></button>');
         }
 
         const drawer = document.getElementById('cartDrawer');
@@ -85,17 +94,17 @@
         // --- Ligne d'article du panier ---
         function itemHtml(it) {
             return '<div class="cart-item" data-id="' + esc(it.id) + '">' +
-                '<div class="cart-item-img"><i class="ti ti-device-laptop"></i></div>' +
+                '<div class="cart-item-img"><i data-lucide="laptop"></i></div>' +
                 '<div class="cart-item-body">' +
                 '<p class="cart-item-name">' + esc(it.name) + '</p>' +
                 '<p class="cart-item-price"><strong>' + fmtFcfa(it.price * it.qty) + '</strong>' +
                 (it.qty > 1 ? ' · ' + fmtFcfa(it.price) + ' /u' : '') + '</p>' +
-                '<button type="button" class="cart-item-remove" data-remove aria-label="Retirer du panier"><i class="ti ti-trash"></i></button>' +
+                '<button type="button" class="cart-item-remove" data-remove aria-label="Retirer du panier"><i data-lucide="trash-2"></i></button>' +
                 '</div>' +
                 '<div class="cart-item-qty">' +
-                '<button type="button" class="qty-btn" data-qty="1" aria-label="Augmenter la quantité"><i class="ti ti-plus"></i></button>' +
+                '<button type="button" class="qty-btn" data-qty="1" aria-label="Augmenter la quantité"><i data-lucide="plus"></i></button>' +
                 '<span class="qty-val">' + it.qty + '</span>' +
-                '<button type="button" class="qty-btn" data-qty="-1" aria-label="Réduire la quantité"><i class="ti ti-minus"></i></button>' +
+                '<button type="button" class="qty-btn" data-qty="-1" aria-label="Réduire la quantité"><i data-lucide="minus"></i></button>' +
                 '</div></div>';
         }
 
@@ -118,6 +127,7 @@
             if (emptyEl) emptyEl.style.display = has ? 'none' : 'flex';
             if (footerEl) footerEl.hidden = !has;
             updateWaPreview();
+            refreshLucide();
             cartSave(items);
         }
 
@@ -156,9 +166,10 @@
             if (!btn) return;
             addItem(btn.dataset.id, btn.dataset.name || 'Produit', Number(btn.dataset.price) || 0);
             const prev = btn.innerHTML;
-            btn.innerHTML = '<i class="ti ti-check"></i>&nbsp; Ajouté !';
+            btn.innerHTML = '<i data-lucide="check"></i>&nbsp; Ajouté !';
+            refreshLucide();
             btn.disabled = true;
-            setTimeout(() => { btn.innerHTML = prev; btn.disabled = false; }, 1100);
+            setTimeout(() => { btn.innerHTML = prev; btn.disabled = false; refreshLucide(); }, 1100);
         });
 
         // Interactions dans le drawer : quantité +/- et suppression (délégation)

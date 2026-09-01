@@ -145,8 +145,8 @@ img{max-width:100%;height:auto;display:block}
 .mobile-nav-links{list-style:none;padding:0;margin:0}
 .mobile-nav-links>li>a{display:flex;align-items:center;gap:12px;padding:13px 20px;font-size:14px;font-weight:500;color:var(--ago-text);border-bottom:1px solid var(--ago-gray)}
 .mobile-nav-links>li>a:hover{color:var(--ago-orange);background:var(--ago-slate-light)}
-.mobile-nav-links>li>a i{font-size:18px;color:var(--ago-slate);width:22px;text-align:center}
-.mobile-nav-links>li>a:hover i{color:var(--ago-orange)}
+.mobile-nav-links>li>a svg{width:20px;height:20px;color:var(--ago-slate);flex-shrink:0}
+.mobile-nav-links>li>a:hover svg{color:var(--ago-orange)}
 .mn-chevron{margin-left:auto;color:var(--ago-text-muted);font-size:14px}
 /* Titre de section "Nos produits" */
 .mn-group-title{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--ago-orange);padding:16px 20px 6px}
@@ -160,7 +160,7 @@ img{max-width:100%;height:auto;display:block}
 .mobile-nav-footer{padding-top:14px}
 .mn-whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 20px 16px;background:#26c159;color:#fff;font-weight:600;font-size:14px;padding:13px 14px;border-radius:10px;transition:var(--transition)}
 .mn-whatsapp-btn:hover{background:#1ea950;color:#fff}
-.mn-whatsapp-btn i{font-size:18px}
+.mn-whatsapp-btn .wa-img{width:20px;height:20px;vertical-align:-5px}
 .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1999;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .mobile-overlay.active{opacity:1;pointer-events:all}
 
@@ -653,7 +653,7 @@ html.no-aos [data-aos]{
 .cart-drawer.active{right:0}
 .cart-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--ago-gray);flex-shrink:0}
 .cart-title{display:flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;color:var(--ago-slate-dark)}
-.cart-title i{color:var(--ago-orange);font-size:20px}
+.cart-title svg{color:var(--ago-orange);width:20px;height:20px}
 .cart-header-count{background:var(--ago-orange);color:#fff;font-size:11px;font-weight:700;min-width:20px;height:20px;padding:0 6px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
 .cart-items{flex:1;overflow-y:auto;padding:4px 0}
 .cart-item{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--ago-gray);align-items:center}
@@ -669,7 +669,7 @@ html.no-aos [data-aos]{
 .cart-item-remove{background:none;border:none;color:var(--ago-text-muted);font-size:15px;cursor:pointer;padding:3px;transition:var(--transition)}
 .cart-item-remove:hover{color:#dc2626}
 .cart-empty{flex:1;display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:24px;text-align:center}
-.cart-empty i{font-size:46px;color:#CBD5E1;margin-bottom:4px}
+.cart-empty svg{width:46px;height:46px;color:#CBD5E1;margin-bottom:4px}
 .cart-empty p{font-weight:600;color:var(--ago-slate-dark);margin:0}
 .cart-empty span{font-size:12.5px;color:var(--ago-text-muted);line-height:1.5}
 .cart-footer{border-top:1px solid var(--ago-gray);padding:14px 20px 18px;flex-shrink:0;background:#fff}
@@ -689,8 +689,8 @@ html.no-aos [data-aos]{
 /* --- Menu mobile : chevron DEVANT + sous-menus déroulants (accordéon) --- */
 .mn-toggle{display:flex;align-items:center;gap:12px;width:100%;padding:13px 20px;font-size:14px;font-weight:500;color:var(--ago-text);background:none;border:none;border-bottom:1px solid var(--ago-gray);cursor:pointer;text-align:left;transition:var(--transition)}
 .mn-toggle:hover{color:var(--ago-orange);background:var(--ago-slate-light)}
-.mn-toggle>i{font-size:18px;color:var(--ago-slate);width:22px;text-align:center}
-.mn-toggle:hover>i{color:var(--ago-orange)}
+.mn-toggle>svg{width:20px;height:20px;color:var(--ago-slate);flex-shrink:0}
+.mn-toggle:hover>svg{color:var(--ago-orange)}
 .mn-chevron{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-left:0;color:var(--ago-text-muted);font-size:13px;flex-shrink:0;transition:transform .25s ease}
 .mn-item.open>.mn-toggle .mn-chevron{transform:rotate(180deg);color:var(--ago-orange)}
 .mn-item.open>.mn-toggle{color:var(--ago-orange);font-weight:600}
@@ -710,3 +710,15 @@ html.no-aos [data-aos]{
   .cart-count.pop,.cart-btn.cart-flash,.mn-item.open .mn-collapse{animation:none}
   .mn-chevron{transition:none}
 }
+
+/* ===== ICÔNES LUCIDE (SVG inline) — remplace la police Tabler (zéro CDN, zéro FOUC) ===== */
+/* :where() = spécificité zéro : les tailles spécifiques ci-dessus restent prioritaires. */
+:where(svg.lucide){width:1.15em;height:1.15em;stroke-width:2;vertical-align:-0.2em;flex-shrink:0}
+.header-icon svg,.cart-fab svg{width:22px;height:22px}
+.search-btn svg{width:20px;height:20px}
+.qty-btn svg,.cart-item-remove svg{width:15px;height:15px}
+
+/* ===== VRAI LOGO WHATSAPP (image SVG officielle) sur les boutons ===== */
+/* Lisible sur tous les fonds (orange, vert, sombre) — plus aucune dépendance CDN. */
+.wa-img{width:19px;height:19px;display:inline-block;vertical-align:-4px}
+.btn-wa .wa-img{width:20px;height:20px;vertical-align:middle}

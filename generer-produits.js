@@ -181,7 +181,7 @@ const products2 = [
 // ===== HELPERS =====
 function specsHtml(p) {
   return p.specs
-    .map((s) => '<li><i class="ti ti-check"></i><strong>' + s[0] + '</strong>' + s[1] + '</li>')
+    .map((s) => '<li><i data-lucide="check"></i><strong>' + s[0] + '</strong>' + s[1] + '</li>')
     .join('\n                        ');
 }
 

@@ -493,6 +493,11 @@
         initHeroTextReveal();
         initCountdownFlip();
         initMarquee();
+
+        // Icônes Lucide (SVG inline, bundle local — aucune police CDN)
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+            window.lucide.createIcons();
+        }
     });
 
 })();
