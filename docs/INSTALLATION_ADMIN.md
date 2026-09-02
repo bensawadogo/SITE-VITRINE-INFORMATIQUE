@@ -70,10 +70,12 @@ Ouvrir `index.html` en local : le catalogue s'affiche normalement.
 
 ## 5. Tester l'espace gérant (10 min)
 
-1. Ouvrir `https://www.agotechcompany.bf/admin/` (le domaine du client).
-2. Le bouton **Connexion GitHub** s'affiche → le client se connecte avec le compte GitHub
-   utilisé pour déployer (vous l'aurez créé/aidé à créer).
-3. Collection **Produits** : le client voit les 8 produits actuels.
+1. Ouvrir `https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE/admin/` (ou le domaine une fois Vercel actif).
+2. **Maintenant (sans serveur)** : le bouton **« Se connecter avec un jeton »** est disponible — chaque gérant
+   crée un [jeton GitHub](https://github.com/settings/tokens/new?scopes=repo) (crocher `repo`), le colle, et gère les produits.
+3. **Après Vercel + OAuth** : décommentez `base_url` / `auth_endpoint` / `auth_scope` dans `admin/config.yml`,
+   puis le bouton **Continuer avec GitHub** (1 clic) remplace le jeton.
+4. Collection **Produits** : le client voit les 8 produits actuels.
    - Modifier un prix, mettre un stock à `0`, changer une photo…
    - Cliquer **Publier** : GitHub reçoit les modifications → Vercel regénère → le site
      public est à jour quelques secondes plus tard.
