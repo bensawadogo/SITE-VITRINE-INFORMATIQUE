@@ -6,17 +6,16 @@
 # =====================================================================
 
 backend:
-  name: github
-  repo: bensawadogo/SITE-VITRINE-INFORMATIQUE
-  branch: main
-  # ── Connexion actuelle : "Se connecter avec un jeton" (fonctionne partout,
-  #    sans serveur). Aucune option supplémentaire requise ici.
+  name: test-repo
+  # ⚠️ MODE VÉRIFICATION TEMPORAIRE — aucune authentification requise.
+  # L'interface s'affiche avec les collections, sans risque : les données sont
+  # stockées uniquement dans le navigateur (test backend de Sveltia).
   #
-  # ── Quand Vercel + OAuth GitHub seront activés (après le déploiement),
-  #    décommentez ces 3 lignes et remplacez le domaine :
-  # base_url: https://www.agotechcompany.bf
-  # auth_endpoint: /api/auth
-  # auth_scope: repo
+  # ── Pour revenir au vrai dépôt (production), remettez :
+  #   name: github
+  #   repo: bensawadogo/SITE-VITRINE-INFORMATIQUE
+  #   branch: main
+  #   (puis connexion par jeton ou OAuth GitHub)
 
 locale: fr
 
