@@ -269,6 +269,9 @@ img{max-width:100%;height:auto;display:block}
 .product-badge{position:absolute;top:12px;left:12px;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700;color:#fff;z-index:2}
 .badge-new{background:var(--ago-slate)}
 .badge-promo{background:var(--ago-orange)}
+.badge-out{background:#8A97A3}
+.btn-cart[disabled]{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none}
+.pd-badge.badge-out{background:#8A97A3}
 .wishlist-btn{position:absolute;top:12px;right:12px;width:44px;height:44px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;border:none;cursor:pointer;color:var(--ago-text-muted);transition:var(--transition)}
 .wishlist-btn:hover,.wishlist-btn.active{color:var(--ago-orange)}
 .wishlist-btn.active svg{fill:var(--ago-orange);stroke:var(--ago-orange)}
@@ -346,6 +349,8 @@ img{max-width:100%;height:auto;display:block}
 .footer-hours p{font-size:13px;color:rgba(255,255,255,.78);margin-bottom:2px}
 
 .footer-bottom{padding:20px 0;text-align:center;font-size:12px;border-top:1px solid rgba(255,255,255,.1);margin-top:30px;color:rgba(255,255,255,.65)}
+.footer-bottom .admin-link{font-size:11px;display:inline-block;margin-top:6px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.footer-bottom .admin-link:hover{color:var(--ago-orange-mid)}
 .footer-heart{color:var(--ago-orange);margin-top:4px}
 
 /* ===== WHATSAPP FLOAT ===== */

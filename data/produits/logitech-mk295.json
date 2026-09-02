@@ -1,0 +1,23 @@
+{
+  "slug": "logitech-mk295",
+  "name": "Kit Clavier + Souris Logitech MK295",
+  "cat": "Accessoires",
+  "sub": "claviers",
+  "brand": "Logitech",
+  "shortSpecs": "Sans fil 2.4GHz · Quiet · USB Nano · 2 ans batterie",
+  "rating": "★★★★½☆",
+  "reviews": 19,
+  "price": 28000,
+  "oldPrice": 0,
+  "badge": "",
+  "stock": 15,
+  "desc": "Kit sans fil Logitech MK295 : touches silencieuses, connexion USB Nano fiable et jusqu'à 2 ans d'autonomie.",
+  "specs": [
+    { "k": "Connexion", "v": "Sans fil 2,4 GHz" },
+    { "k": "Récepteur", "v": "USB Nano" },
+    { "k": "Touches", "v": "Silencieuses" },
+    { "k": "Autonomie", "v": "Jusqu'à 2 ans" },
+    { "k": "Garantie", "v": "6 mois" }
+  ],
+  "img": "/images/products/p8.jpg"
+}

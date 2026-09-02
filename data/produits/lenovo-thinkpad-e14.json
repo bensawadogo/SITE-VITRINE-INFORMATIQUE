@@ -1,0 +1,24 @@
+{
+  "slug": "lenovo-thinkpad-e14",
+  "name": "Lenovo ThinkPad E14 Gen 4",
+  "cat": "Laptops",
+  "sub": "",
+  "brand": "Lenovo",
+  "shortSpecs": "Intel Core i7 12ème · 16GB DDR4 · 512GB NVMe · Windows 11 Pro",
+  "rating": "★★★★★",
+  "reviews": 18,
+  "price": 580000,
+  "oldPrice": 0,
+  "badge": "new",
+  "stock": 8,
+  "desc": "Lenovo ThinkPad E14 Gen 4 : puissance de calcul sérieuse, clavier professionnel réputé et finitions durables.",
+  "specs": [
+    { "k": "Processeur", "v": "Intel Core i7 12ème génération" },
+    { "k": "Mémoire", "v": "16 Go DDR4" },
+    { "k": "Stockage", "v": "SSD NVMe 512 Go" },
+    { "k": "Écran", "v": "14\" FHD" },
+    { "k": "Système", "v": "Windows 11 Pro" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p2.jpg"
+}

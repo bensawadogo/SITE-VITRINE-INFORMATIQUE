@@ -1,0 +1,23 @@
+{
+  "slug": "lg-27-fhd-ips",
+  "name": "LG 27\" FHD IPS Monitor",
+  "cat": "Écrans",
+  "sub": "",
+  "brand": "LG",
+  "shortSpecs": "1920×1080 · 75Hz · FreeSync · HDMI × 2",
+  "rating": "★★★★★",
+  "reviews": 15,
+  "price": 145000,
+  "oldPrice": 0,
+  "badge": "new",
+  "stock": 6,
+  "desc": "Grand écran LG 27 pouces Full HD IPS avec FreeSync : image nette et fluide pour la bureautique comme pour le divertissement.",
+  "specs": [
+    { "k": "Définition", "v": "1920 × 1080 (Full HD)" },
+    { "k": "Dalle", "v": "IPS" },
+    { "k": "Entrées", "v": "HDMI × 2" },
+    { "k": "Fréquence", "v": "75 Hz avec FreeSync" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p6.jpg"
+}

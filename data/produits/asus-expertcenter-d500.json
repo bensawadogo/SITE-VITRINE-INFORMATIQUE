@@ -1,0 +1,24 @@
+{
+  "slug": "asus-expertcenter-d500",
+  "name": "Asus ExpertCenter D500",
+  "cat": "Desktops",
+  "sub": "",
+  "brand": "Asus",
+  "shortSpecs": "Intel Core i3 · 4GB RAM · 500GB HDD · Windows 10",
+  "rating": "★★★★☆",
+  "reviews": 12,
+  "price": 150000,
+  "oldPrice": 185000,
+  "badge": "promo",
+  "stock": 10,
+  "desc": "Asus ExpertCenter D500 compact et silencieux : un excellent rapport qualité-prix pour l'usage quotidien.",
+  "specs": [
+    { "k": "Processeur", "v": "Intel Core i3" },
+    { "k": "Mémoire", "v": "4 Go RAM" },
+    { "k": "Stockage", "v": "Disque dur 500 Go" },
+    { "k": "Format", "v": "Mini tour compacte" },
+    { "k": "Système", "v": "Windows 10" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p4.jpg"
+}

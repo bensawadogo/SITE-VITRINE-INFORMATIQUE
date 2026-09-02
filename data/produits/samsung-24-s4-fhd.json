@@ -1,0 +1,23 @@
+{
+  "slug": "samsung-24-s4-fhd",
+  "name": "Samsung 24\" S4 FHD",
+  "cat": "Écrans",
+  "sub": "",
+  "brand": "Samsung",
+  "shortSpecs": "Résolution 1920×1080 · IPS · HDMI + VGA · 75Hz",
+  "rating": "★★★★☆",
+  "reviews": 27,
+  "price": 95000,
+  "oldPrice": 110000,
+  "badge": "promo",
+  "stock": 7,
+  "desc": "Écran Samsung 24 pouces Full HD à dalle IPS : couleurs précises, angle de vision large et usage prolongé confortable.",
+  "specs": [
+    { "k": "Définition", "v": "1920 × 1080 (Full HD)" },
+    { "k": "Dalle", "v": "IPS antireflet" },
+    { "k": "Entrées", "v": "HDMI + VGA" },
+    { "k": "Fréquence", "v": "75 Hz" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p5.jpg"
+}

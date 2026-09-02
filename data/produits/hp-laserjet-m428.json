@@ -1,0 +1,23 @@
+{
+  "slug": "hp-laserjet-m428",
+  "name": "HP LaserJet Pro MFP M428",
+  "cat": "Imprimantes",
+  "sub": "imprimantes",
+  "brand": "HP",
+  "shortSpecs": "Laser monochrome · Copie · Scan · Wi-Fi · A4",
+  "rating": "★★★★☆",
+  "reviews": 22,
+  "price": 175000,
+  "oldPrice": 0,
+  "badge": "",
+  "stock": 4,
+  "desc": "Imprimante multifonction HP LaserJet Pro : impression, copie et numérisation laser, rapide et économique en encre.",
+  "specs": [
+    { "k": "Technologie", "v": "Laser monochrome" },
+    { "k": "Fonctions", "v": "Impression · Copie · Scan" },
+    { "k": "Connectivité", "v": "Wi-Fi + USB" },
+    { "k": "Format", "v": "A4" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p7.jpg"
+}

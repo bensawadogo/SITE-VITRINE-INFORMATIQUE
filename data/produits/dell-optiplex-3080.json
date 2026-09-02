@@ -1,0 +1,24 @@
+{
+  "slug": "dell-optiplex-3080",
+  "name": "Dell OptiPlex 3080 MT",
+  "cat": "Desktops",
+  "sub": "",
+  "brand": "Dell",
+  "shortSpecs": "Intel Core i5 · 8GB RAM · 1TB HDD · Windows 10 Pro",
+  "rating": "★★★½☆",
+  "reviews": 31,
+  "price": 265000,
+  "oldPrice": 0,
+  "badge": "",
+  "stock": 5,
+  "desc": "Dell OptiPlex 3080 : tour professionnelle fiable, idéale pour bureaux, comptabilités et postes de travail.",
+  "specs": [
+    { "k": "Processeur", "v": "Intel Core i5" },
+    { "k": "Mémoire", "v": "8 Go RAM" },
+    { "k": "Stockage", "v": "Disque dur 1 To" },
+    { "k": "Format", "v": "Mini tour (MT)" },
+    { "k": "Système", "v": "Windows 10 Pro" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p3.jpg"
+}

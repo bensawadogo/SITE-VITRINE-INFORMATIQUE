@@ -1,230 +1,245 @@
-/* Générateur des pages produits — AGO Tech Company
-   Usage : node generer-produits.js
-   Re-génère les 8 pages dans /produits à partir de _template.html.
-   Après coup, modifiez les données ci-dessous puis relancez. */
+/* Générateur produits — AGO Tech Company
+   Source de vérité : data/produits/*.json (édité depuis /admin — Sveltia CMS).
+   Usage : node generer-produits.js   (exécuté automatiquement par Vercel au build)
+   1) Génère produits/<slug>.html depuis produits/_template.html
+   2) Réinjecte les cartes dans index.html entre les marqueurs PRODUCTS:START/END */
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
+const DATA_DIR = path.join(ROOT, 'data', 'produits');
 const TPL = fs.readFileSync(path.join(ROOT, 'produits', '_template.html'), 'utf8');
+const INDEX_PATH = path.join(ROOT, 'index.html');
 
-const products = [
-  {
-    slug: 'hp-250-g9',
-    name: 'HP 250 G9 Notebook',
-    cat: 'Laptops',
-    img: 'p1.jpg', imgw: 'p1.webp',
-    brand: 'HP',
-    rating: '★★★★☆', reviews: '24',
-    priceHtml: '<s>420 000 FCFA</s> <strong class="text-orange">350 000 FCFA</strong>',
-    priceNum: '350000',
-    badgeHtml: '<span class="pd-badge badge-promo">Promo</span>',
-    desc: 'Laptop HP 250 G9 robuste et performant pour le travail et les études. Bureau, navigation et multimédia fluides.',
-    specs: [
-      ['Processeur', 'Intel Core i5 11ème génération'],
-      ['Mémoire', '8 Go DDR4'],
-      ['Stockage', 'SSD 256 Go (démarrage rapide)'],
-      ['Écran', '15.6" antireflet'],
-      ['Système', 'Windows 11 Home'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20250%20G9%20Notebook%20%C3%A0%20350%20000%20FCFA'
-  },
-  {
-    slug: 'lenovo-thinkpad-e14',
-    name: 'Lenovo ThinkPad E14 Gen 4',
-    cat: 'Laptops',
-    img: 'p2.jpg', imgw: 'p2.webp',
-    brand: 'Lenovo',
-    rating: '★★★★★', reviews: '18',
-    priceHtml: '<strong>580 000 FCFA</strong>',
-    priceNum: '580000',
-    badgeHtml: '<span class="pd-badge badge-new">Nouveau</span>',
-    desc: 'Lenovo ThinkPad E14 Gen 4 : puissance de calcul sérieuse, clavier professionnel réputé et finitions durables.',
-    specs: [
-      ['Processeur', 'Intel Core i7 12ème génération'],
-      ['Mémoire', '16 Go DDR4'],
-      ['Stockage', 'SSD NVMe 512 Go'],
-      ['Écran', '14" FHD'],
-      ['Système', 'Windows 11 Pro'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Lenovo%20ThinkPad%20E14%20Gen%204%20%C3%A0%20580%20000%20FCFA'
-  },
-  {
-    slug: 'dell-optiplex-3080',
-    name: 'Dell OptiPlex 3080 MT',
-    cat: 'Desktops',
-    img: 'p3.jpg', imgw: 'p3.webp',
-    brand: 'Dell',
-    rating: '★★★½☆', reviews: '31',
-    priceHtml: '<strong>265 000 FCFA</strong>',
-    priceNum: '265000',
-    badgeHtml: '',
-    desc: 'Dell OptiPlex 3080 : tour professionnelle fiable, idéale pour bureaux, comptabilités et postes de travail.',
-    specs: [
-      ['Processeur', 'Intel Core i5'],
-      ['Mémoire', '8 Go RAM'],
-      ['Stockage', 'Disque dur 1 To'],
-      ['Format', 'Mini tour (MT)'],
-      ['Système', 'Windows 10 Pro'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Dell%20OptiPlex%203080%20MT%20%C3%A0%20265%20000%20FCFA'
-  },
-  {
-    slug: 'asus-expertcenter-d500',
-    name: 'Asus ExpertCenter D500',
-    cat: 'Desktops',
-    img: 'p4.jpg', imgw: 'p4.webp',
-    brand: 'Asus',
-    rating: '★★★★☆', reviews: '12',
-    priceHtml: '<s>185 000 FCFA</s> <strong class="text-orange">150 000 FCFA</strong>',
-    priceNum: '150000',
-    badgeHtml: '<span class="pd-badge badge-promo">Promo</span>',
-    desc: 'Asus ExpertCenter D500 compact et silencieux : un excellent rapport qualité-prix pour l’usage quotidien.',
-    specs: [
-      ['Processeur', 'Intel Core i3'],
-      ['Mémoire', '4 Go RAM'],
-      ['Stockage', 'Disque dur 500 Go'],
-      ['Format', 'Mini tour compacte'],
-      ['Système', 'Windows 10'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Asus%20ExpertCenter%20D500%20%C3%A0%20150%20000%20FCFA'
-  }
-];
-// ===== PRODUITS 5 à 8 =====
-const products2 = [
-  {
-    slug: 'samsung-24-s4-fhd',
-    name: 'Samsung 24" S4 FHD',
-    cat: 'Écrans',
-    img: 'p5.jpg', imgw: 'p5.webp',
-    brand: 'Samsung',
-    rating: '★★★★☆', reviews: '27',
-    priceHtml: '<s>110 000 FCFA</s> <strong class="text-orange">95 000 FCFA</strong>',
-    priceNum: '95000',
-    badgeHtml: '<span class="pd-badge badge-promo">Promo</span>',
-    desc: 'Écran Samsung 24 pouces Full HD à dalle IPS : couleurs précises, angle de vision large et usage prolongé confortable.',
-    specs: [
-      ['Définition', '1920 × 1080 (Full HD)'],
-      ['Dalle', 'IPS antireflet'],
-      ['Entrées', 'HDMI + VGA'],
-      ['Fréquence', '75 Hz'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Samsung%2024%22%20S4%20FHD%20%C3%A0%2095%20000%20FCFA'
-  },
-  {
-    slug: 'lg-27-fhd-ips',
-    name: 'LG 27" FHD IPS Monitor',
-    cat: 'Écrans',
-    img: 'p6.jpg', imgw: 'p6.webp',
-    brand: 'LG',
-    rating: '★★★★★', reviews: '15',
-    priceHtml: '<strong>145 000 FCFA</strong>',
-    priceNum: '145000',
-    badgeHtml: '<span class="pd-badge badge-new">Nouveau</span>',
-    desc: 'Grand écran LG 27 pouces Full HD IPS avec FreeSync : image nette et fluide pour la bureautique comme pour le divertissement.',
-    specs: [
-      ['Définition', '1920 × 1080 (Full HD)'],
-      ['Dalle', 'IPS'],
-      ['Entrées', 'HDMI × 2'],
-      ['Fréquence', '75 Hz avec FreeSync'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20LG%2027%22%20FHD%20IPS%20Monitor%20%C3%A0%20145%20000%20FCFA'
-  },
-  {
-    slug: 'hp-laserjet-m428',
-    name: 'HP LaserJet Pro MFP M428',
-    cat: 'Imprimantes',
-    img: 'p7.jpg', imgw: 'p7.webp',
-    brand: 'HP',
-    rating: '★★★★☆', reviews: '22',
-    priceHtml: '<strong>175 000 FCFA</strong>',
-    priceNum: '175000',
-    badgeHtml: '',
-    desc: 'Imprimante multifonction HP LaserJet Pro : impression, copie et numérisation laser, rapide et économique en encre.',
-    specs: [
-      ['Technologie', 'Laser monochrome'],
-      ['Fonctions', 'Impression · Copie · Scan'],
-      ['Connectivité', 'Wi-Fi + USB'],
-      ['Format', 'A4'],
-      ['Garantie', '12 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20HP%20LaserJet%20Pro%20MFP%20M428%20%C3%A0%20175%20000%20FCFA'
-  },
-  {
-    slug: 'logitech-mk295',
-    name: 'Kit Clavier + Souris Logitech MK295',
-    cat: 'Accessoires',
-    img: 'p8.jpg', imgw: 'p8.webp',
-    brand: 'Logitech',
-    rating: '★★★★½☆', reviews: '19',
-    priceHtml: '<strong>28 000 FCFA</strong>',
-    priceNum: '28000',
-    badgeHtml: '',
-    desc: 'Kit sans fil Logitech MK295 : touches silencieuses, connexion USB Nano fiable et jusqu’à 2 ans d’autonomie.',
-    specs: [
-      ['Connexion', 'Sans fil 2,4 GHz'],
-      ['Récepteur', 'USB Nano'],
-      ['Touches', 'Silencieuses'],
-      ['Autonomie', 'Jusqu’à 2 ans'],
-      ['Garantie', '6 mois']
-    ],
-    wa: 'https://wa.me/22607000000?text=Bonjour%20AGO%20Tech%20Company%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Kit%20Clavier%20%2B%20Souris%20Logitech%20MK295%20%C3%A0%2028%20000%20FCFA'
-  }
-];
+/* ⚙️ URL du site (canonical, Open Graph) — à mettre à jour après l'achat du
+   domaine client et le passage sur Vercel, ex. 'https://www.agotechcompany.bf' */
+const SITE_URL = 'https://bensawadogo.github.io/SITE-VITRINE-INFORMATIQUE';
+const WHATSAPP = '22607000000';
+
+const CAT_SLUG = {
+  'Laptops': 'laptops',
+  'Desktops': 'desktops',
+  'Écrans': 'ecrans',
+  'Accessoires': 'accessoires',
+  'Imprimantes': 'accessoires'
+};
+
+const products = fs.readdirSync(DATA_DIR)
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => {
+    const p = JSON.parse(fs.readFileSync(path.join(DATA_DIR, f), 'utf8'));
+    p.catSlug = CAT_SLUG[p.cat] || 'accessoires';
+    return p;
+  });
 
 // ===== HELPERS =====
+const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+function waLink(p) {
+  const txt = 'Bonjour AGO Tech Company, je suis intéressé par le ' + p.name +
+    ' à ' + fmt(p.price) + ' FCFA';
+  return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(txt);
+}
+
+function priceHtml(p) {
+  if (p.oldPrice && p.oldPrice > p.price) {
+    return '<s>' + fmt(p.oldPrice) + ' FCFA</s> <strong class="text-orange">' +
+      fmt(p.price) + ' FCFA</strong>';
+  }
+  return '<strong>' + fmt(p.price) + ' FCFA</strong>';
+}
+
+// ===== BADGES & IMAGES =====
+function stockBadge(p) {
+  if (p.stock <= 0) return { cls: 'badge-out', label: 'Rupture' };
+  if (p.badge === 'promo') return { cls: 'badge-promo', label: 'Promo' };
+  if (p.badge === 'new') return { cls: 'badge-new', label: 'Nouveau' };
+  return null;
+}
+
+function imgVariants(p) {
+  /* dérive les variantes webp si elles existent sur disque (les 8 produits
+     d'origine ; les nouveaux produits du client n'ont pas besoin de variantes) */
+  const ext = path.extname(p.img);
+  const base = p.img.slice(0, -ext.length);
+  const file = path.basename(p.img);
+  const name = path.basename(base);
+  const has400 = fs.existsSync(path.join(ROOT, base + '-400.webp'));
+  const has800 = fs.existsSync(path.join(ROOT, base + '.webp'));
+  const has400jpg = fs.existsSync(path.join(ROOT, base + '-400.jpg'));
+  return { base, file, name, has400, has800, has400jpg };
+}
+
+/* Chemin d'affichage JPEG de la photo (variante -400 si elle existe) */
+function jpgPath(v, prefix) {
+  return prefix + (v.has400jpg ? v.name + '-400.jpg' : v.file);
+}
+
+function cardHtml(p, i) {
+  const out = p.stock <= 0;
+  const b = stockBadge(p);
+  const v = imgVariants(p);
+  const src = jpgPath(v, 'images/products/');
+  let img;
+  if (v.has400 || v.has800) {
+    const srcset = [];
+    if (v.has400) srcset.push('images/products/' + v.name + '-400.webp 400w');
+    if (v.has800) srcset.push('images/products/' + v.name + '.webp 800w');
+    img = '<picture><source type="image/webp" srcset="' + srcset.join(', ') +
+      '" sizes="(max-width:480px) 140px, (max-width:768px) 300px, (max-width:992px) 210px, 260px">' +
+      '<img class="product-photo" src="' + src + '" alt="' + esc(p.name) +
+      '" loading="lazy" width="800" height="800"></picture>';
+  } else {
+    img = '<img class="product-photo" src="' + src + '" alt="' + esc(p.name) +
+      '" loading="lazy" width="800" height="800">';
+  }
+  const attrs = ['data-category="' + p.catSlug + '"'];
+  if (p.brand) attrs.push('data-brand="' + esc(String(p.brand).toLowerCase()) + '"');
+  if (p.sub) attrs.push('data-sub="' + esc(p.sub) + '"');
+  if (b && !out) attrs.push('data-badge="' + (p.badge === 'new' ? 'nouveau' : 'promo') + '"');
+  attrs.push('data-aos="fade-up"', 'data-aos-delay="' + (i % 4) * 100 + '"');
+
+  const addBtn = out
+    ? '<button type="button" class="btn btn-orange btn-cart" disabled aria-label="Rupture de stock"><i data-lucide="shopping-cart"></i>&nbsp; Rupture</button>'
+    : '<button type="button" class="btn btn-orange btn-cart" data-cart-add data-id="' + p.slug + '" data-name="' + esc(p.name) + '" data-price="' + p.price + '" aria-label="Ajouter ' + esc(p.name) + ' au panier"><i data-lucide="shopping-cart"></i>&nbsp; Ajouter</button>';
+
+  return [
+    '<div class="product-card" ' + attrs.join(' ') + '><a href="produits/' + p.slug + '.html" class="card-link" aria-label="Voir les détails du produit" tabindex="-1"></a>',
+    '                    <div class="border-beam"><div class="border-beam-inner"></div></div>',
+    '                    <div class="product-image">',
+    '                        ' + (b ? '<span class="product-badge ' + b.cls + '">' + b.label + '</span>' : ''),
+    '                        <button class="wishlist-btn" data-id="' + p.slug + '" aria-label="Ajouter aux favoris">',
+    '                            <i data-lucide="heart"></i>',
+    '                        </button>',
+    '                        ' + img,
+    '                    </div>',
+    '                    <div class="product-info">',
+    '                        <h3>' + esc(p.name) + '</h3>',
+    '                        <p class="product-specs">' + esc(p.shortSpecs || '') + '</p>',
+    '                        <div class="product-rating">',
+    '                            <span class="stars">' + esc(p.rating || '') + '</span>',
+    '                            <span class="rating-count">(' + (p.reviews || 0) + ' avis)</span>',
+    '                        </div>',
+    '                        <div class="product-price">' + priceHtml(p) + '</div>',
+    '                        <div class="product-actions">',
+    '                            ' + addBtn,
+    '                            <a href="' + waLink(p) + '" class="btn btn-slate btn-wa" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp"><img src="images/brands/whatsapp-white.svg" alt="WhatsApp" class="wa-img" width="24" height="24"></a>',
+    '                        </div>',
+    '                        <a href="produits/' + p.slug + '.html" class="btn btn-outline-orange btn-block btn-details">Voir les détails</a>',
+    '                    </div>',
+    '                </div>'
+  ].join('\n');
+}
+
+// ===== GALERIE & SPECS (pages détail) =====
+function galleryHtml(p) {
+  const v = imgVariants(p);
+  const fallback = jpgPath(v, '../images/products/');
+  if (!v.has400 && !v.has800) {
+    return '<img src="' + fallback + '" alt="' + esc(p.name) + '" width="800" height="800">';
+  }
+  const srcset = [];
+  if (v.has400) srcset.push('../images/products/' + v.name + '-400.webp 400w');
+  if (v.has800) srcset.push('../images/products/' + v.name + '.webp 800w');
+  return '<picture><source type="image/webp" srcset="' + srcset.join(', ') +
+    '" sizes="(max-width:768px) 88vw, 400px"><img src="' + fallback + '" alt="' +
+    esc(p.name) + '" width="800" height="800"></picture>';
+}
+
+function thumbHtml(p) {
+  const v = imgVariants(p);
+  const src = jpgPath(v, '../images/products/');
+  return '<img src="' + src + '" alt="Photo ' + esc(p.name) + '" width="24" height="24">';
+}
+
 function specsHtml(p) {
-  return p.specs
-    .map((s) => '<li><i data-lucide="check"></i><strong>' + s[0] + '</strong>' + s[1] + '</li>')
+  return (p.specs || [])
+    .map((s) => '<li><i data-lucide="check"></i><strong>' + esc(s.k) + '</strong>' + esc(s.v) + '</li>')
     .join('\n                        ');
 }
 
-function moreHtml(p) {
-  const others = products.concat(products2).filter((o) => o.slug !== p.slug).slice(0, 3);
-  return others
-    .map((o) =>
-      '<a class="pd-more-card" href="' + o.slug + '.html">' +
-      '  <div class="pd-more-img"><picture><source type="image/webp" srcset="../images/products/' + o.imgw.replace('.webp', '-400.webp') + ' 400w, ../images/products/' + o.imgw + ' 800w" sizes="(max-width:480px) 45vw, 280px">' +
-      '  <img src="../images/products/' + o.img.replace('.jpg', '-400.jpg') + '" alt="' + o.name + '" loading="lazy" width="800" height="800"></picture></div>' +
-      '  <div class="pd-more-body"><h3>' + o.name + '</h3>' +
-      '  <div class="pd-more-price">' + o.priceHtml + '</div>' +
-      '  <span class="btn btn-slate btn-block">Voir le produit</span></div>' +
-      '</a>'
-    )
-    .join('\n                ');
+function detailBadge(p) {
+  const b = stockBadge(p);
+  if (!b) return '';
+  const label = b.cls === 'badge-out' ? 'Rupture de stock' : b.label;
+  return '<span class="pd-badge ' + b.cls + '">' + label + '</span>';
 }
 
-// ===== GÉNÉRATION =====
-const all = products.concat(products2);
-for (const p of all) {
-  let html = TPL
-    .split('@@DESC@@').join(p.desc)
+function moreHtml(p) {
+  const others = products.filter((o) => o.slug !== p.slug).slice(0, 3);
+  return others.map((o) => {
+    const v = imgVariants(o);
+    const fallback = jpgPath(v, '../images/products/');
+    let img;
+    if (v.has400 || v.has800) {
+      const srcset = [];
+      if (v.has400) srcset.push('../images/products/' + v.name + '-400.webp 400w');
+      if (v.has800) srcset.push('../images/products/' + v.name + '.webp 800w');
+      img = '<picture><source type="image/webp" srcset="' + srcset.join(', ') +
+        '" sizes="(max-width:480px) 45vw, 280px"><img src="' + fallback +
+        '" alt="' + esc(o.name) + '" loading="lazy" width="800" height="800"></picture>';
+    } else {
+      img = '<img src="' + fallback + '" alt="' + esc(o.name) + '" loading="lazy" width="800" height="800">';
+    }
+    return '<a class="pd-more-card" href="' + o.slug + '.html">' +
+      '<div class="pd-more-img">' + img + '</div>' +
+      '<div class="pd-more-body"><h3>' + esc(o.name) + '</h3>' +
+      '<div class="pd-more-price">' + priceHtml(o) + '</div>' +
+      '<span class="btn btn-slate btn-block">Voir le produit</span></div></a>';
+  }).join('\n                ');
+}
+
+// ===== GÉNÉRATION DES PAGES =====
+const PROD_DIR = path.join(ROOT, 'produits');
+fs.mkdirSync(PROD_DIR, { recursive: true });
+/* supprime les anciennes pages générées (sauf _template.html) pour rester en
+   phase avec les données : produit supprimé dans /admin ⇒ page disparue */
+for (const f of fs.readdirSync(PROD_DIR)) {
+  if (f.endsWith('.html') && f !== '_template.html') fs.unlinkSync(path.join(PROD_DIR, f));
+}
+
+for (const p of products) {
+  const html = TPL
+    .split('@@SITE_URL@@').join(SITE_URL)
+    .split('@@DESC@@').join(esc(p.desc || ''))
     .split('@@CANONICAL@@').join(p.slug + '.html')
     .split('@@SLUG@@').join(p.slug)
-    .split('@@NAME@@').join(p.name)
-    .split('@@IMG_JPG@@').join(p.img)
-    .split('@@IMG_WEBP@@').join(p.imgw)
-    .split('@@IMG400_WEBP@@').join(p.imgw.replace('.webp', '-400.webp'))
-    .split('@@IMG400_JPG@@').join(p.img.replace('.jpg', '-400.jpg'))
-    .split('@@ALT@@').join(p.name)
-    .split('@@BRAND_NAME@@').join(p.brand)
-    .split('@@PRICE_NUM@@').join(p.priceNum)
-    .split('@@BADGE_HTML@@').join(p.badgeHtml)
-    .split('@@CAT@@').join(p.cat)
-    .split('@@RATING@@').join(p.rating)
-    .split('@@REVIEWS@@').join(p.reviews)
-    .split('@@PRICE_HTML@@').join(p.priceHtml)
-    .split('@@DESCRIPTION@@').join(p.desc)
+    .split('@@NAME@@').join(esc(p.name))
+    .split('@@IMG_JPG@@').join(path.basename(p.img))
+    .split('@@GALLERY_HTML@@').join(galleryHtml(p))
+    .split('@@THUMB_HTML@@').join(thumbHtml(p))
+    .split('@@ALT@@').join(esc(p.name))
+    .split('@@BRAND_NAME@@').join(esc(p.brand || ''))
+    .split('@@PRICE_NUM@@').join(String(p.price))
+    .split('@@BADGE_HTML@@').join(detailBadge(p))
+    .split('@@CAT@@').join(esc(p.cat || ''))
+    .split('@@RATING@@').join(esc(p.rating || ''))
+    .split('@@REVIEWS@@').join(String(p.reviews || 0))
+    .split('@@PRICE_HTML@@').join(priceHtml(p))
+    .split('@@DESCRIPTION@@').join(esc(p.desc || ''))
     .split('@@SPECS_HTML@@').join(specsHtml(p))
-    .split('@@WA_LINK@@').join(p.wa)
+    .split('@@WA_LINK@@').join(waLink(p))
     .split('@@MORE_HTML@@').join(moreHtml(p));
-  fs.writeFileSync(path.join(ROOT, 'produits', p.slug + '.html'), html, 'utf8');
-  console.log('OK →', p.slug + '.html');
+  fs.writeFileSync(path.join(PROD_DIR, p.slug + '.html'), html, 'utf8');
+  console.log('OK → produits/' + p.slug + '.html');
 }
-console.log('Génération terminée :', all.length, 'pages produits.');
+
+// ===== RÉINJECTION DES CARTES DANS index.html =====
+const START = '<!-- PRODUCTS:START';
+const END = '<!-- PRODUCTS:END -->';
+let index = fs.readFileSync(INDEX_PATH, 'utf8');
+const cards = products.map(cardHtml).join('\n                ');
+const iStart = index.indexOf(START);
+const iEnd = index.indexOf(END);
+if (iStart !== -1 && iEnd !== -1) {
+  index = index.slice(0, iStart + START.length) +
+    ' (généré par generer-produits.js — ne pas éditer à la main) -->\n                ' +
+    cards + '\n                ' + index.slice(iEnd);
+  fs.writeFileSync(INDEX_PATH, index, 'utf8');
+  console.log('OK → index.html : ' + products.length + ' cartes réinjectées');
+} else {
+  console.warn('⚠ Marqueurs PRODUCTS:START/END introuvables dans index.html');
+}
+console.log('Terminé : ' + products.length + ' produits.');

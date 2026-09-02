@@ -1,0 +1,24 @@
+{
+  "slug": "hp-250-g9",
+  "name": "HP 250 G9 Notebook",
+  "cat": "Laptops",
+  "sub": "",
+  "brand": "HP",
+  "shortSpecs": "Intel Core i5 11ème · 8GB DDR4 · 256GB SSD · Windows 11 Home",
+  "rating": "★★★★☆",
+  "reviews": 24,
+  "price": 350000,
+  "oldPrice": 420000,
+  "badge": "promo",
+  "stock": 12,
+  "desc": "Laptop HP 250 G9 robuste et performant pour le travail et les études. Bureau, navigation et multimédia fluides.",
+  "specs": [
+    { "k": "Processeur", "v": "Intel Core i5 11ème génération" },
+    { "k": "Mémoire", "v": "8 Go DDR4" },
+    { "k": "Stockage", "v": "SSD 256 Go (démarrage rapide)" },
+    { "k": "Écran", "v": "15.6\" antireflet" },
+    { "k": "Système", "v": "Windows 11 Home" },
+    { "k": "Garantie", "v": "12 mois" }
+  ],
+  "img": "/images/products/p1.jpg"
+}

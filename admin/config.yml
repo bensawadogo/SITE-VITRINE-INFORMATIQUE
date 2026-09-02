@@ -1,0 +1,157 @@
+# =====================================================================
+# Espace gérant AGO Tech Company — Sveltia CMS
+# Le client modifie ses produits depuis son téléphone ; chaque "Publier"
+# pousse vers GitHub → Vercel reconstruit automatiquement le site (quelques
+# secondes) et le publie en ligne.
+# =====================================================================
+
+backend:
+  name: github
+  repo: bensawadogo/SITE-VITRINE-INFORMATIQUE
+  branch: main
+  # Domaines du site (anti-abus : seules ces pages peuvent utiliser l'OAuth)
+  base_url: https://www.agotechcompany.bf
+  auth_endpoint: /api/auth
+  auth_scope: repo
+
+locale: fr
+
+# Les photos uploadées par le gérant sont rangées avec les produits
+media_folder: /images/products
+public_folder: /images/products
+
+collections:
+  - name: produits
+    label: Produits
+    label_singular: Produit
+    folder: data/produits
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: slug
+    slug: "{{slug}}"
+    sortable_fields:
+      - name
+      - price
+      - stock
+    summary: "{{name}} — {{price}} FCFA — stock : {{stock}}"
+    preview_path: "produits/{{slug}}.html"
+    view_filters:
+      - label: En rupture
+        field: stock
+        pattern: 0
+      - label: En promo
+        field: badge
+        pattern: promo
+    fields:
+      - label: "Identifiant du produit"
+        name: slug
+        widget: string
+        hint: "Petites lettres sans espaces ni accents. Ex. : hp-250-g9. Ne changez pas un identifiant existant (casserait les liens)."
+        pattern: ["^[a-z0-9-]+$", "Lettres minuscules, chiffres et tirets uniquement"]
+      - label: "Nom du produit"
+        name: name
+        widget: string
+        hint: "Le nom affiché sur le site. Ex. : HP 250 G9 Notebook"
+      - label: "Catégorie"
+        name: cat
+        widget: select
+        options:
+          - Laptops
+          - Desktops
+          - Écrans
+          - Accessoires
+          - Imprimantes
+      - label: "Sous-catégorie (facultatif)"
+        name: sub
+        widget: select
+        required: false
+        options:
+          - { label: Aucune, value: "" }
+          - imprimantes
+          - claviers
+          - souris
+        hint: "Permet le filtre détaillé (ex. imprimantes dans Accessoires)"
+      - label: "Marque"
+        name: brand
+        widget: string
+        hint: "Ex. : HP, Lenovo, Dell…"
+      - label: "Description courte (sur la carte)"
+        name: shortSpecs
+        widget: text
+        hint: "Une ligne : processeur · mémoire · stockage…"
+      - label: "Note en étoiles"
+        name: rating
+        widget: string
+        default: "★★★★☆"
+        hint: "Utilisez ★ (pleine) et ☆ (vide). Ex. : ★★★★☆"
+      - label: "Nombre d'avis"
+        name: reviews
+        widget: number
+        value_type: int
+        min: 0
+      - label: "Prix (FCFA)"
+        name: price
+        widget: number
+        value_type: int
+        min: 0
+        hint: "Le prix affiché. Ex. : 350000"
+      - label: "Ancien prix pour la promo (FCFA)"
+        name: oldPrice
+        widget: number
+        value_type: int
+        min: 0
+        required: false
+        hint: "Laissez 0 pour ne pas afficher de promo"
+      - label: "Badge"
+        name: badge
+        widget: select
+        required: false
+        options:
+          - { label: Aucun, value: "" }
+          - { label: Promo, value: promo }
+          - { label: Nouveau, value: new }
+      - label: "Stock disponible (quantité)"
+        name: stock
+        widget: number
+        value_type: int
+        min: 0
+        default: 5
+        hint: "Mettez 0 pour afficher « Rupture de stock » et désactiver le bouton Ajouter"
+      - label: "Description détaillée"
+        name: desc
+        widget: text
+        hint: "Une courte description visible sur la page du produit"
+      - label: "Caractéristiques techniques"
+        name: specs
+        widget: list
+        collapsed: true
+        summary: "{{fields.k}} : {{fields.v}}"
+        fields:
+          - label: "Libellé"
+            name: k
+            widget: string
+            hint: "Ex. : Processeur"
+          - label: "Valeur"
+            name: v
+            widget: string
+            hint: "Ex. : Intel Core i5 11ème génération"
+      - label: "Photo du produit"
+        name: img
+        widget: image
+        choose_url: false
+        media_library:
+          config:
+            multiple: false
+        hint: "Importez une photo nette. Elle s'affichera automatiquement. Idéal : carrée, ~800 px."
+
+  - name: infos
+    label: Coordonnées
+    description: "Ne pas modifier sans prévenir le développeur (pour l'instant)."
+    files:
+      - name: infos
+        label: Infos boutique
+        file: data/infos.yml
+        fields:
+          - { label: Boutique ouverte ? , name: ouvert, widget: boolean, default: true }
