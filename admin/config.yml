@@ -9,10 +9,14 @@ backend:
   name: github
   repo: bensawadogo/SITE-VITRINE-INFORMATIQUE
   branch: main
-  # Domaines du site (anti-abus : seules ces pages peuvent utiliser l'OAuth)
-  base_url: https://www.agotechcompany.bf
-  auth_endpoint: /api/auth
-  auth_scope: repo
+  # ── Connexion actuelle : "Se connecter avec un jeton" (fonctionne partout,
+  #    sans serveur). Aucune option supplémentaire requise ici.
+  #
+  # ── Quand Vercel + OAuth GitHub seront activés (après le déploiement),
+  #    décommentez ces 3 lignes et remplacez le domaine :
+  # base_url: https://www.agotechcompany.bf
+  # auth_endpoint: /api/auth
+  # auth_scope: repo
 
 locale: fr
 
@@ -31,19 +35,7 @@ collections:
     delete: true
     identifier_field: slug
     slug: "{{slug}}"
-    sortable_fields:
-      - name
-      - price
-      - stock
     summary: "{{name}} — {{price}} FCFA — stock : {{stock}}"
-    preview_path: "produits/{{slug}}.html"
-    view_filters:
-      - label: En rupture
-        field: stock
-        pattern: 0
-      - label: En promo
-        field: badge
-        pattern: promo
     fields:
       - label: "Identifiant du produit"
         name: slug
@@ -154,4 +146,7 @@ collections:
         label: Infos boutique
         file: data/infos.yml
         fields:
-          - { label: Boutique ouverte ? , name: ouvert, widget: boolean, default: true }
+          - label: "Boutique ouverte ?"
+            name: ouvert
+            widget: boolean
+            default: true
