@@ -50,20 +50,19 @@ collections:
         name: cat
         widget: select
         options:
-          - Laptops
-          - Desktops
-          - Écrans
-          - Accessoires
-          - Imprimantes
+          - { label: Laptops, value: Laptops }
+          - { label: Desktops, value: Desktops }
+          - { label: Écrans, value: Écrans }
+          - { label: Accessoires, value: Accessoires }
+          - { label: Imprimantes, value: Imprimantes }
       - label: "Sous-catégorie (facultatif)"
         name: sub
         widget: select
         required: false
         options:
-          - { label: Aucune, value: "" }
-          - imprimantes
-          - claviers
-          - souris
+          - { label: Imprimantes, value: imprimantes }
+          - { label: Claviers & Souris, value: claviers }
+          - { label: Souris, value: souris }
         hint: "Permet le filtre détaillé (ex. imprimantes dans Accessoires)"
       - label: "Marque"
         name: brand
@@ -101,7 +100,6 @@ collections:
         widget: select
         required: false
         options:
-          - { label: Aucun, value: "" }
           - { label: Promo, value: promo }
           - { label: Nouveau, value: new }
       - label: "Stock disponible (quantité)"
