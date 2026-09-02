@@ -190,8 +190,8 @@ function moreHtml(p) {
   return others
     .map((o) =>
       '<a class="pd-more-card" href="' + o.slug + '.html">' +
-      '  <div class="pd-more-img"><picture><source type="image/webp" srcset="../images/products/' + o.imgw + '">' +
-      '  <img src="../images/products/' + o.img + '" alt="' + o.name + '" loading="lazy" width="800" height="800"></picture></div>' +
+      '  <div class="pd-more-img"><picture><source type="image/webp" srcset="../images/products/' + o.imgw.replace('.webp', '-400.webp') + ' 400w, ../images/products/' + o.imgw + ' 800w" sizes="(max-width:480px) 45vw, 280px">' +
+      '  <img src="../images/products/' + o.img.replace('.jpg', '-400.jpg') + '" alt="' + o.name + '" loading="lazy" width="800" height="800"></picture></div>' +
       '  <div class="pd-more-body"><h3>' + o.name + '</h3>' +
       '  <div class="pd-more-price">' + o.priceHtml + '</div>' +
       '  <span class="btn btn-slate btn-block">Voir le produit</span></div>' +
@@ -210,6 +210,8 @@ for (const p of all) {
     .split('@@NAME@@').join(p.name)
     .split('@@IMG_JPG@@').join(p.img)
     .split('@@IMG_WEBP@@').join(p.imgw)
+    .split('@@IMG400_WEBP@@').join(p.imgw.replace('.webp', '-400.webp'))
+    .split('@@IMG400_JPG@@').join(p.img.replace('.jpg', '-400.jpg'))
     .split('@@ALT@@').join(p.name)
     .split('@@BRAND_NAME@@').join(p.brand)
     .split('@@PRICE_NUM@@').join(p.priceNum)

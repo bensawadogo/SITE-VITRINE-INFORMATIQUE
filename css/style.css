@@ -125,7 +125,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-link{display:block;padding:14px 18px;color:rgba(255,255,255,.85);font-size:14px;font-weight:500;transition:var(--transition)}
 .nav-link:hover,.nav-link.active{color:#fff;background:rgba(232,82,10,.1)}
 .nav-link.active{border-bottom:3px solid transparent}
-.nav-promo{color:var(--ago-orange)!important;font-weight:600}
+.nav-promo{background:var(--ago-orange)!important;color:#fff!important;padding:4px 14px;border-radius:20px;font-weight:600}
 
 .has-dropdown{position:relative}
 .dropdown{position:absolute;top:100%;left:0;background:#fff;min-width:200px;border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-5px);transition:all .2s ease;z-index:100;list-style:none;padding:8px 0}
